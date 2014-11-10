@@ -1,9 +1,12 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
+<%@ include file="/WEB-INF/jsp/includes.jsp" %>
+
 <html>
 	<head>
-		<title>Survey Messenger</title>
+		<title>Survey Menager</title>
 	</head>
 	<body>
 		<h1>Witaj na stronie ankiety</h1>
-	</body>
+		<spring:message code="welcome"/>
+	</body>	
 </html>

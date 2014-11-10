@@ -13,7 +13,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="question_category")
+@Table(name="question_categories")
 public class QuestionCategory implements Serializable{
 	private static final long serialVersionUID = 2004912436434381228L;
 	

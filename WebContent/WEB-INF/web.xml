@@ -5,11 +5,7 @@
    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
    http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
 
-   <display-name>UniMess</display-name>
-
-	<welcome-file-list> 
-		<welcome-file> /WEB-INF/jsp/welcome.jsp </welcome-file> 
-	</welcome-file-list>
+   <display-name>DentaSurvey</display-name>
 
    <servlet>
       <servlet-name>DentaSurvey</servlet-name>
@@ -26,7 +22,8 @@
    
    <context-param>
    	  <param-name>contextConfigLocation</param-name>
-   	  <param-value>WEB-INF/application-context.xml</param-value>
+   	  <param-value>WEB-INF/application-context.xml,
+   	  			   WEB-INF/security-context.xml</param-value>
    </context-param>
    
    <listener>
@@ -50,4 +47,17 @@
 	    <filter-name>encodingFilter</filter-name>
 	    <url-pattern>/*</url-pattern>
 	</filter-mapping>
+	
+	<!-- Spring Security -->
+	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy
+		</filter-class>
+	</filter>
+ 
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
 </web-app>

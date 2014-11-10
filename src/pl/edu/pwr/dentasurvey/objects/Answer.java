@@ -11,7 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="answer")
+@Table(name="answers")
 public class Answer implements Serializable{
 	private static final long serialVersionUID = -7887861321267745750L;
 	
@@ -22,11 +22,8 @@ public class Answer implements Serializable{
 	private String answer;
 	
 	@ManyToOne()
-	@JoinColumn(name="question_id")
+	@JoinColumn(name="question_id", nullable=true)
 	private Question question;
-	
-	@Column(name="old_question")
-	private String oldQuestion;
 	
 	@ManyToOne()
 	@JoinColumn(nullable=false, name="answered_survey_id")
@@ -35,21 +32,19 @@ public class Answer implements Serializable{
 	Answer() {		
 	}
 
-	public Answer(String answer, Question question, String oldQuestion,
+	public Answer(String answer, Question question,
 			AnsweredSurvey answeredSurvey) {
 		this.answer = answer;
 		this.question = question;
-		this.oldQuestion = oldQuestion;
 		this.answeredSurvey = answeredSurvey;
 	}
 
 	public Answer(Long answerId, String answer, Question question,
-			String oldQuestion, AnsweredSurvey answeredSurvey) {
+			AnsweredSurvey answeredSurvey) {
 		super();
 		this.answerId = answerId;
 		this.answer = answer;
 		this.question = question;
-		this.oldQuestion = oldQuestion;
 		this.answeredSurvey = answeredSurvey;
 	}
 
@@ -75,14 +70,6 @@ public class Answer implements Serializable{
 
 	public void setQuestion(Question question) {
 		this.question = question;
-	}
-
-	public String getOldQuestion() {
-		return oldQuestion;
-	}
-
-	public void setOldQuestion(String oldQuestion) {
-		this.oldQuestion = oldQuestion;
 	}
 
 	public AnsweredSurvey getAnsweredSurvey() {

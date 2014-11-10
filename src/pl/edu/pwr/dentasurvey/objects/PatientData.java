@@ -12,7 +12,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="patient_data")
+@Table(name="patients_data")
 public class PatientData implements Serializable {
 	private static final long serialVersionUID = -7502796570083370647L;
 

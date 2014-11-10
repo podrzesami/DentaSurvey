@@ -1,21 +1,15 @@
 package pl.edu.pwr.dentasurvey.main;
 
-import java.util.Iterator;
-import java.util.List;
-
-import org.hibernate.Session;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-import pl.edu.pwr.dentasurvey.hibernate.HibernateUtil;
-import pl.edu.pwr.dentasurvey.objects.AnsweredSurvey;
-import pl.edu.pwr.dentasurvey.objects.PatientData;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class MainController {
-	@RequestMapping(value = "/welcome", method = RequestMethod.GET)
+/*	@RequestMapping(value = "/main", method = RequestMethod.GET)
 	public String displayWelcomePage(ModelMap model) {
 		Session session = HibernateUtil.getSession();
 		session.beginTransaction();
@@ -42,5 +36,27 @@ public class MainController {
             }	           
         }	
 		return "welcome";
+	}
+*/	
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String displayStartPage(ModelMap model) {
+		return "main";
+	}
+	
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public ModelAndView login(@RequestParam(value = "error", required = false) String error,
+		@RequestParam(value = "logout", required = false) String logout) {
+	 
+		ModelAndView model = new ModelAndView();
+		if (error != null) {
+			model.addObject("error", "error");
+		}
+	 
+		if (logout != null) {
+			model.addObject("msg", "msg");
+		}
+		model.setViewName("login");
+	 
+		return model;
 	}
 }
