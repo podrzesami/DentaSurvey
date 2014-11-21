@@ -14,12 +14,19 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 @Entity
-@Table(name="questions")
+@Table(name="questions") @Getter @Setter @NoArgsConstructor @AllArgsConstructor
 public class Question implements Serializable{
 	private static final long serialVersionUID = -8547454023833683858L;
 	
-	@Id @GeneratedValue @Column(nullable=false, unique=true, name="question_id")
+	@Id 
+	@GeneratedValue()
+	@Column(nullable=false, unique=true, name="question_id")
 	private Long questionId;
 	
 	@Column(nullable=false, name="question")
@@ -30,7 +37,7 @@ public class Question implements Serializable{
 	private QuestionType questionType;
 	
 	@ManyToOne()
-	@JoinColumn(name="survey_id", nullable=false)
+	@JoinColumn(name="survey_id", nullable=true)
 	private Survey survey;
 
 	@ManyToOne()
@@ -39,14 +46,10 @@ public class Question implements Serializable{
 	
 	@OneToMany(mappedBy="question", fetch = FetchType.LAZY, cascade = {CascadeType.DETACH})
 	private List<Answer> answers;	
-	
-	Question() {
-	}
 
 	public Question(Long questionId, String question,
 			QuestionType questionType, Survey survey,
 			QuestionCategory questionCategory) {
-		super();
 		this.questionId = questionId;
 		this.question = question;
 		this.questionType = questionType;
@@ -56,58 +59,9 @@ public class Question implements Serializable{
 
 	public Question(String question, QuestionType questionType, Survey survey,
 			QuestionCategory questionCategory) {
-		super();
 		this.question = question;
 		this.questionType = questionType;
 		this.survey = survey;
 		this.questionCategory = questionCategory;
-	}
-
-	public Long getQuestionId() {
-		return questionId;
-	}
-
-	public void setQuestionId(Long questionId) {
-		this.questionId = questionId;
-	}
-
-	public String getQuestion() {
-		return question;
-	}
-
-	public void setQuestion(String question) {
-		this.question = question;
-	}
-
-	public QuestionType getQuestionType() {
-		return questionType;
-	}
-
-	public void setQuestionType(QuestionType questionType) {
-		this.questionType = questionType;
-	}
-
-	public Survey getSurvey() {
-		return survey;
-	}
-
-	public void setSurvey(Survey survey) {
-		this.survey = survey;
-	}
-
-	public QuestionCategory getQuestionCategory() {
-		return questionCategory;
-	}
-
-	public void setQuestionCategory(QuestionCategory questionCategory) {
-		this.questionCategory = questionCategory;
-	}
-
-	public List<Answer> getAnswers() {
-		return answers;
-	}
-
-	public void setAnswers(List<Answer> answers) {
-		this.answers = answers;
 	}	
 }

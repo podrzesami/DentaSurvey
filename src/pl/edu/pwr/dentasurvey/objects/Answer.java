@@ -10,73 +10,36 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 @Entity
-@Table(name="answers")
+@Table(name="answers") @Setter @Getter @NoArgsConstructor @AllArgsConstructor
 public class Answer implements Serializable{
 	private static final long serialVersionUID = -7887861321267745750L;
 	
-	@Id @GeneratedValue @Column(nullable=false, unique=true, name="answer_id")
+	@Id 
+	@GeneratedValue()
+	@Column(nullable=false, unique=true, name="answer_id")
 	private Long answerId;
 	
 	@Column(nullable=false, name="answer")
 	private String answer;
 	
 	@ManyToOne()
-	@JoinColumn(name="question_id", nullable=true)
+	@JoinColumn(name="question_id", nullable=false)
 	private Question question;
 	
 	@ManyToOne()
 	@JoinColumn(nullable=false, name="answered_survey_id")
 	private AnsweredSurvey answeredSurvey;
 	
-	Answer() {		
-	}
-
 	public Answer(String answer, Question question,
 			AnsweredSurvey answeredSurvey) {
 		this.answer = answer;
 		this.question = question;
 		this.answeredSurvey = answeredSurvey;
 	}
-
-	public Answer(Long answerId, String answer, Question question,
-			AnsweredSurvey answeredSurvey) {
-		super();
-		this.answerId = answerId;
-		this.answer = answer;
-		this.question = question;
-		this.answeredSurvey = answeredSurvey;
-	}
-
-	public Long getAnswerId() {
-		return answerId;
-	}
-
-	public void setAnswerId(Long answerId) {
-		this.answerId = answerId;
-	}
-
-	public String getAnswer() {
-		return answer;
-	}
-
-	public void setAnswer(String answer) {
-		this.answer = answer;
-	}
-
-	public Question getQuestion() {
-		return question;
-	}
-
-	public void setQuestion(Question question) {
-		this.question = question;
-	}
-
-	public AnsweredSurvey getAnsweredSurvey() {
-		return answeredSurvey;
-	}
-
-	public void setAnsweredSurvey(AnsweredSurvey answeredSurvey) {
-		this.answeredSurvey = answeredSurvey;
-	}	
 }

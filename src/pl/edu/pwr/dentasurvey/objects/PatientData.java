@@ -11,8 +11,13 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 @Entity
-@Table(name="patients_data")
+@Table(name="patients_data") @Getter @Setter @NoArgsConstructor @AllArgsConstructor
 public class PatientData implements Serializable {
 	private static final long serialVersionUID = -7502796570083370647L;
 
@@ -43,23 +48,6 @@ public class PatientData implements Serializable {
 	@OneToMany(mappedBy="patientData", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
 	private List<AnsweredSurvey> answeredSurveys;	
 
-	public PatientData() {
-	}
-	
-	public PatientData(Long patientId, String name, String surname, int age,
-			String address, String phoneNumber, int numberOfKids,
-			String occupation, List<AnsweredSurvey> answeredSurveys) {
-		this.patientId = patientId;
-		this.name = name;
-		this.surname = surname;
-		this.age = age;
-		this.address = address;
-		this.phoneNumber = phoneNumber;
-		this.numberOfKids = numberOfKids;
-		this.occupation = occupation;
-		this.answeredSurveys = answeredSurveys;
-	}
-
 	public PatientData(Long patientId, String name, String surname, int age,
 			String address, String phoneNumber, int numberOfKids,
 			String occupation) {
@@ -84,61 +72,4 @@ public class PatientData implements Serializable {
 		this.numberOfKids = numberOfKids;
 		this.occupation = occupation;
 	}
-	
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getSurname() {
-		return surname;
-	}
-	public void setSurname(String surname) {
-		this.surname = surname;
-	}
-	public int getAge() {
-		return age;
-	}
-	public void setAge(int age) {
-		this.age = age;
-	}
-	public String getAddress() {
-		return address;
-	}
-	public void setAddress(String address) {
-		this.address = address;
-	}
-	public String getPhoneNumber() {
-		return phoneNumber;
-	}
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
-	public int getNumberOfKids() {
-		return numberOfKids;
-	}
-	public void setNumberOfKids(int numberOfKids) {
-		this.numberOfKids = numberOfKids;
-	}
-	public String getOccupation() {
-		return occupation;
-	}
-	public void setOccupation(String occupation) {
-		this.occupation = occupation;
-	}
-	public Long getPatientId() {
-		return patientId;
-	}
-	public void setPatientId(Long patientId) {
-		this.patientId = patientId;
-	}
-
-	public List<AnsweredSurvey> getAnsweredSurveys() {
-		return answeredSurveys;
-	}
-
-	public void setAnsweredSurveys(List<AnsweredSurvey> answeredSurveys) {
-		this.answeredSurveys = answeredSurveys;
-	}	
 }

@@ -12,12 +12,19 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 @Entity
-@Table(name="languages")
+@Table(name="languages") @Setter @Getter @NoArgsConstructor @AllArgsConstructor
 public class Language implements Serializable{
 	private static final long serialVersionUID = -3797547325568861174L;
 	
-	@Id @GeneratedValue @Column(nullable=false, unique=true, name="language_id")
+	@Id 
+	@GeneratedValue()
+	@Column(nullable=false, unique=true, name="language_id")
 	private Long languageId;
 	
 	@Column(nullable=false, unique=true, name="language")
@@ -25,9 +32,6 @@ public class Language implements Serializable{
 	
 	@OneToMany(mappedBy="language", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
 	private List<Survey> surveys;
-	
-	Language(){		
-	}
 
 	public Language(Long languageId, String language) {
 		super();
@@ -39,28 +43,4 @@ public class Language implements Serializable{
 		super();
 		this.language = language;
 	}
-
-	public Long getLanguageId() {
-		return languageId;
-	}
-
-	public void setLanguageId(Long languageId) {
-		this.languageId = languageId;
-	}
-
-	public String getLanguage() {
-		return language;
-	}
-
-	public void setLanguage(String language) {
-		this.language = language;
-	}
-
-	public List<Survey> getSurveys() {
-		return surveys;
-	}
-
-	public void setSurveys(List<Survey> surveys) {
-		this.surveys = surveys;
-	}	
 }

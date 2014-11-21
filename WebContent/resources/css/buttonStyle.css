@@ -1,0 +1,107 @@
+.redButton {
+	color: rgba(146, 30, 30, 1);
+	box-shadow: 0px 0px 1px rgba(237, 114, 47, 0.21) inset;
+	background-color: rgba(224, 101, 45, 0.92);
+	border: 1px solid rgba(150, 18, 8, 0.33);
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
+.redButton:hover {
+	background-color: rgba(197, 61, 7, 0.92);
+}
+
+.redButton:active {
+	background-color: rgba(203, 42, 23, 0.92);
+}
+
+.greenButton {
+	box-shadow: 0px 0px 1px rgba(96, 162, 79, 1) inset;
+	background-color: rgba(83, 227, 68, 0.77);
+	border: 1px solid rgba(28, 104, 20, 0.51);
+	color: rgba(2, 60, 0, 1);
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;	
+}
+
+.greenButton:hover {
+	background-color: rgba(36, 189, 20, 0.77);
+}
+
+.greenButton:activ {
+	background-color: rgba(40, 161, 27, 0.77);
+}
+
+.greyButton {
+	box-shadow: 0px 0px 1px #4F7AA2 inset;
+	background-color: rgba(176, 180, 186, 1);
+	border: 1px solid rgba(5, 9, 14, 0.61);
+	color: rgba(90, 101, 117, 1);
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;	
+}
+
+.greyButton:hover {
+	background-color: rgba(188, 191, 255, 1);
+}
+
+.greyButton:active {
+	background-color: rgba(255, 255, 255, 1);
+}
+
+.greyButton {
+	box-shadow: 0px 0px 1px #4F7AA2 inset;
+	background-color: rgba(176, 180, 186, 1);
+	border: 1px solid rgba(5, 9, 14, 0.61);
+	color: rgba(90, 101, 117, 1);
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;	
+}
+
+.greyButton:hover {
+	background-color: rgba(188, 191, 255, 1);
+}
+
+.greyButton:active {
+	background-color: rgba(255, 255, 255, 1);
+}
+
+.blueButton {
+	box-shadow: 0px 0px 1px #4F7AA2 inset;
+	background-color: rgba(84, 97, 200, 0.9);
+	border: 1px solid rgba(19, 32, 50, 0.52);
+	color: rgba(26, 37, 54, 1);
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;	
+}
+
+.blueButton:hover {
+	background-color: rgba(188, 191, 255, 1);
+}
+
+.blueButton:active {
+	background-color: rgba(35, 53, 198, 0.9);
+}
+
+.violetButton {
+	box-shadow: 0px 0px 1px #4F7AA2 inset;
+	background-color: rgba(94, 83, 207, 0.8);
+	border: 1px solid rgba(41, 26, 102, 0.44);
+	color: rgba(37, 51, 71, 1);
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;	
+}
+
+.violetButton:hover {
+	background-color: rgba(62, 49, 192, 0.8);
+}
+
+.violetButton:active {
+	background-color: rgba(42, 30, 161, 0.8);
+}

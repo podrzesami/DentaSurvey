@@ -11,6 +11,5 @@
       <property name="url" value="jdbc:mysql://localhost:3306/denta_survey"/>
       <property name="username" value="root"/>
       <property name="password" value="1qaz"/>
-   </bean>
+   </bean>   
 </beans>
-

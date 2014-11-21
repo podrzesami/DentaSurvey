@@ -14,12 +14,19 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 @Entity
-@Table(name="syrveys")
+@Table(name="surveys") @Getter @Setter @NoArgsConstructor @AllArgsConstructor
 public class Survey implements Serializable{
 	private static final long serialVersionUID = -6737763724946741575L;
 	
-	@Id @GeneratedValue @Column(nullable=false, unique=true, name="survey_id")
+	@Id
+	@GeneratedValue()
+	@Column(nullable=false, unique=true, name="survey_id")
 	private Long surveyId;
 	
 	@Column(nullable=false, unique=true, name="title")
@@ -29,11 +36,8 @@ public class Survey implements Serializable{
 	@JoinColumn(nullable=false, name="language_id")
 	private Language language;
 	
-	@OneToMany(mappedBy="survery", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
+	@OneToMany(mappedBy="survey", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
 	private List<Question> questions;
-
-	public Survey() {
-	}
 
 	public Survey(String title, Language language) {
 		super();
@@ -46,37 +50,5 @@ public class Survey implements Serializable{
 		this.surveyId = surveyId;
 		this.title = title;
 		this.language = language;
-	}
-
-	public Long getSurveyId() {
-		return surveyId;
-	}
-
-	public void setSurveyId(Long surveyId) {
-		this.surveyId = surveyId;
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public Language getLanguage() {
-		return language;
-	}
-
-	public void setLanguage(Language language) {
-		this.language = language;
-	}
-
-	public List<Question> getQuestions() {
-		return questions;
-	}
-
-	public void setQuestions(List<Question> questions) {
-		this.questions = questions;
-	} 	
+	}	
 }

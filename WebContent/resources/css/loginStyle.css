@@ -1,0 +1,57 @@
+.error {
+	padding: 15px;
+	margin-bottom: 20px;
+	border: 1px solid rgba(173, 36, 58, 0.56);
+	border-radius: 4px;
+	color: rgba(170, 17, 14, 1);
+	background-color: rgba(236, 113, 113, 1);
+}
+ 
+.msg {
+	padding: 15px;
+	margin-bottom: 20px;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	color: #31708f;
+	background-color: #d9edf7;
+	border-color: #bce8f1;
+}
+ 
+#login-box {
+	width: 450px;
+	padding: 20px;
+	margin: 100px auto;	
+}
+
+.login-lebel {
+	width: 100px;
+	float: left;
+	display: inline;
+	text-align: right;
+	padding: 14px 10px 0px 0px;
+	margin-right: 20px;
+}
+
+.login-box {
+	float: left;
+	display: inline;
+	width: 300px;
+	margin: 0px 0px 7px;
+}
+
+.login-input {
+	width: 300px;
+	padding: 10px 4px 6px 3px;
+	border: 1px solid rgba(249, 249, 249, 0.37);
+	background-color: rgba(211, 226, 243, 0.43);
+	font-size: 16px;
+	color: rgba(255, 255, 255, 1);
+}
+
+.login-button {
+	width: 100px;
+	height: 40px;
+	font-size: 18px;
+	font-weight: bold;
+	margin: 10px 10px 10px 330px;
+}

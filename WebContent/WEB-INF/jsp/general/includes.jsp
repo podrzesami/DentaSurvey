@@ -5,6 +5,6 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
-<head>
-	<link rel="stylesheet" type="text/css" href="resources/css/mainStyle.css">
-</head>
+<link rel="stylesheet" type="text/css" href="/DentaSurvey/resources/css/mainStyle.css">
+<link rel="stylesheet" type="text/css" href="/DentaSurvey/resources/css/buttonStyle.css">
+<script type="text/javascript" src="/DentaSurvey/resources/js/jQuery/jquery-2.1.1.min.js"></script>

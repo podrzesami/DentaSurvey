@@ -1,33 +1,98 @@
 body {
-    background-color: lightblue;
+	background: url('/DentaSurvey/resources/images/greyback1.jpg') no-repeat !important;    
+	background: rgba(201,201,201,1);
+	background: -moz-linear-gradient(left, rgba(201,201,201,1) 0%, rgba(201,201,201,1) 8%, rgba(196,196,196,1) 22%, rgba(186,186,186,1) 43%, rgba(186,186,186,1) 68%, rgba(227,227,227,1) 92%, rgba(227,227,227,1) 100%);
+	background: -webkit-gradient(left top, right top, color-stop(0%, rgba(201,201,201,1)), color-stop(8%, rgba(201,201,201,1)), color-stop(22%, rgba(196,196,196,1)), color-stop(43%, rgba(186,186,186,1)), color-stop(68%, rgba(186,186,186,1)), color-stop(92%, rgba(227,227,227,1)), color-stop(100%, rgba(227,227,227,1)));
+	background: -webkit-linear-gradient(left, rgba(201,201,201,1) 0%, rgba(201,201,201,1) 8%, rgba(196,196,196,1) 22%, rgba(186,186,186,1) 43%, rgba(186,186,186,1) 68%, rgba(227,227,227,1) 92%, rgba(227,227,227,1) 100%);
+	background: -o-linear-gradient(left, rgba(201,201,201,1) 0%, rgba(201,201,201,1) 8%, rgba(196,196,196,1) 22%, rgba(186,186,186,1) 43%, rgba(186,186,186,1) 68%, rgba(227,227,227,1) 92%, rgba(227,227,227,1) 100%);
+	background: -ms-linear-gradient(left, rgba(201,201,201,1) 0%, rgba(201,201,201,1) 8%, rgba(196,196,196,1) 22%, rgba(186,186,186,1) 43%, rgba(186,186,186,1) 68%, rgba(227,227,227,1) 92%, rgba(227,227,227,1) 100%);
+	background: linear-gradient(to right, rgba(201,201,201,1) 0%, rgba(201,201,201,1) 8%, rgba(196,196,196,1) 22%, rgba(186,186,186,1) 43%, rgba(186,186,186,1) 68%, rgba(227,227,227,1) 92%, rgba(227,227,227,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c9c9c9', endColorstr='#e3e3e3', GradientType=1 );
 }
 
-.error {
-	padding: 15px;
-	margin-bottom: 20px;
-	border: 1px solid transparent;
-	border-radius: 4px;
-	color: #a94442;
-	background-color: #f2dede;
-	border-color: #ebccd1;
+.title {
+	font-size: 44px;
+	font-weight: bold;
 }
- 
-.msg {
-	padding: 15px;
-	margin-bottom: 20px;
-	border: 1px solid transparent;
-	border-radius: 4px;
-	color: #31708f;
-	background-color: #d9edf7;
-	border-color: #bce8f1;
+
+.panel {
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	background-color: rgba(135, 135, 135, 0.65);
+	border: 2px solid rgba(19, 19, 27, 0.17);
 }
- 
-#login-box {
-	width: 300px;
+
+.panel-center {
 	padding: 20px;
-	margin: 100px auto;
-	background: #fff;
-	-webkit-border-radius: 2px;
-	-moz-border-radius: 2px;
-	border: 1px solid #000;
+	margin: 100px auto;	
+}
+
+h3 {
+	font: bold 44px "Calibri", Arial;
+	margin-top: 10px;
+}
+
+div {
+	font: 20px "Calibri", Aria;
+}
+
+button {
+	width: 100px;
+	height: 30px;
+	font-size: 18px;
+	color: #1E4F92;
+	font-weight: bold;
+	box-shadow:inset 0px 0px 1px rgba(79,122,162,1);
+	color: #1E4F92;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.leftButton-1-2 {
+	display: inline;
+	width: 30px;
+	height: inherit;
+	font-size: 18px;
+	font-weight: bold;
+	margin: 0px;
+	margin-left: 300px;	
+}
+
+.rightButton-2-2 {
+	display: inline;
+	width: 300px;
+	height: inherit;
+	font-size: 18px;
+	font-weight: bold;
+	margin: 0px;
+}
+
+.centerButton-1 {
+	display: inline;
+	width: 300px;
+	height: 300px;
+	font-size: 18px;
+	font-weight: bold;
+	margin: 0px;	
+	margin-left: 400px;	
+	font: bold 30px "Calibri", Arial; 
+	text-align: center;
+}
+
+.button-1-row-div {
+	padding-top: 150px;
+	height: 300px;
+}
+
+.button-2-row-div-1 {
+	padding-top: 130px;
+	height: 200px !important;	
+}
+
+.button-2-row-div-2 {
+	padding-top: 5px;
+	height: 150px !important;
+	margin-left: 300px	
 }

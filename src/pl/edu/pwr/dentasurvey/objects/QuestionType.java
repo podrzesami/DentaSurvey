@@ -12,12 +12,19 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 @Entity
-@Table(name="question_types")
+@Table(name="question_types") @Getter @Setter @NoArgsConstructor @AllArgsConstructor
 public class QuestionType implements Serializable{
 	private static final long serialVersionUID = -1592926327907327945L;
 
-	@Id @GeneratedValue @Column(nullable=false, unique=true, name="question_type_id")
+	@Id 
+	@GeneratedValue()
+	@Column(nullable=false, unique=true, name="question_type_id")
 	private Long questionTypeId;
 
 	@Column(nullable=false, unique=true, name="type")
@@ -26,9 +33,9 @@ public class QuestionType implements Serializable{
 	@OneToMany(mappedBy="questionType", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
 	private List<Question> questions;	
 	
-	public QuestionType() {		
-	}
-	
+	@OneToMany(mappedBy="questionType", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
+	private List<PossibleAnswer> possibleAnswers;	
+		
 	public QuestionType(String type) {
 		this.type=type;
 	}
@@ -36,21 +43,5 @@ public class QuestionType implements Serializable{
 	public QuestionType(Long questionTypeId, String type) {
 		this.questionTypeId = questionTypeId;
 		this.type = type;
-	}
-
-	public Long getQuestionTypeId() {
-		return questionTypeId;
-	}
-
-	public void setQuestionTypeId(Long questionTypeId) {
-		this.questionTypeId = questionTypeId;
-	}
-
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
-	}		
+	}	
 }

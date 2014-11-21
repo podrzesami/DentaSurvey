@@ -1,0 +1,47 @@
+#accessDeniedPanel {
+	width:400px;
+	font: bold 30px "Calibri", Arial; 
+	text-align: center;
+}
+
+#patientPanelButton {
+	width: 350px;
+	height: inherit;
+	margin: 0px;
+}
+
+#adminPanelButton {
+	width: 350px;
+	height: inherit ;
+	margin: 0px ;
+}
+
+#manageSurveys {
+	width: 350px;
+	height: inherit ;
+	margin: 0px ;
+}
+
+#managePatiens {
+	width: 350px;
+	height: inherit ;
+	margin: 0px ;	
+}
+
+#manageUses {
+	width: 705px;
+	height: inherit ;
+	margin: 0px ;
+}
+
+#manageSurveys2 {
+	width: 350px;
+	height: inherit ;
+	margin: 0px ;
+}
+
+#managePatiens2 {
+	width: 350px;
+	height: inherit ;
+	margin: 0px ;	
+}	

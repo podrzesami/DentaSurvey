@@ -12,56 +12,33 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 @Entity
-@Table(name="question_categories")
+@Table(name="question_categories") @Setter @Getter @NoArgsConstructor @AllArgsConstructor
 public class QuestionCategory implements Serializable{
 	private static final long serialVersionUID = 2004912436434381228L;
 	
-	@Id @GeneratedValue @Column(nullable=false, unique=true, name="question_category_id")
+	@Id
+	@GeneratedValue()
+	@Column(nullable=false, unique=true, name="question_category_id")
 	private Long questionCategoryId;
 	
-	@Column(nullable=false, unique=false, name="category")
+	@Column(nullable=false, unique=true, name="category")
 	private String category;
 	
 	@OneToMany(mappedBy="questionCategory", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
 	private List<Question> questions;
 
-	public QuestionCategory() {
-		super();
-	}
-
 	public QuestionCategory(Long questionCategoryId, String category) {
-		super();
 		this.questionCategoryId = questionCategoryId;
 		this.category = category;
 	}
 
 	public QuestionCategory(String category) {
-		super();
 		this.category = category;
-	}
-
-	public Long getQuestionCategoryId() {
-		return questionCategoryId;
-	}
-
-	public void setQuestionCategoryId(Long questionCategoryId) {
-		this.questionCategoryId = questionCategoryId;
-	}
-
-	public String getCategory() {
-		return category;
-	}
-
-	public void setCategory(String category) {
-		this.category = category;
-	}
-
-	public List<Question> getQuestions() {
-		return questions;
-	}
-
-	public void setQuestions(List<Question> questions) {
-		this.questions = questions;
 	}	
 }

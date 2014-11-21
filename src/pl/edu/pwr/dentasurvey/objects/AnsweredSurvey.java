@@ -2,22 +2,33 @@ package pl.edu.pwr.dentasurvey.objects;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Version;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 @Entity
-@Table(name="answered_surverys")
+@Table(name="answered_surveys") @Getter @Setter @NoArgsConstructor @AllArgsConstructor
 public class AnsweredSurvey implements Serializable {
 	private static final long serialVersionUID = -6643183558907253725L;
 
-	@Id @GeneratedValue @Column(nullable=false, unique=true, name="answered_survery_id") 
+	@Id
+	@GeneratedValue()
+	@Column(nullable=false, unique=true, name="answered_survey_id") 
 	private Long answeredSurveyId;
 	
 	@Version
@@ -28,15 +39,14 @@ public class AnsweredSurvey implements Serializable {
 	@JoinColumn(name="patient_id", nullable=false)
 	private PatientData patientData;
 	
-	@Column(nullable=false, name="reffered_by")
-	private String refferedBy;
-	
+	@Column(nullable=false, name="referred_by")
+	private String refferedBy;	
 	
 	@Column(nullable=false, name="medical_problem")
 	private String medicalProblem;
 	
-	public AnsweredSurvey() {		
-	}
+	@OneToMany(mappedBy="answeredSurvey", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
+	private List<Answer> answers;
 
 	public AnsweredSurvey(Date date, PatientData patientData,
 			String refferedBy, String medicalProblem) {
@@ -45,60 +55,5 @@ public class AnsweredSurvey implements Serializable {
 		this.patientData = patientData;
 		this.refferedBy = refferedBy;
 		this.medicalProblem = medicalProblem;
-	}
-
-
-	public AnsweredSurvey(Long answeredSurveyId, Date date,
-			PatientData patientData, String refferedBy, String medicalProblem) {
-		this.answeredSurveyId = answeredSurveyId;
-		this.date = date;
-		this.patientData = patientData;
-		this.refferedBy = refferedBy;
-		this.medicalProblem = medicalProblem;
-	}
-
-
-	public String getRefferedBy() {
-		return refferedBy;
-	}
-
-	public void setRefferedBy(String refferedBy) {
-		this.refferedBy = refferedBy;
-	}
-
-	public String getMedicalProblem() {
-		return medicalProblem;
-	}
-
-	public void setMedicalProblem(String medicalProblem) {
-		this.medicalProblem = medicalProblem;
-	}
-
-	public void setPatientData(PatientData patientData) {
-		this.patientData = patientData;
-	}
-
-	public Long getAnsweredSurveyId() {
-		return answeredSurveyId;
-	}
-
-	public void setAnsweredSurveyId(Long answeredSurveyId) {
-		this.answeredSurveyId = answeredSurveyId;
-	}
-
-	public Date getDate() {
-		return date;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
-	}
-
-	public PatientData getPatientData() {
-		return patientData;
-	}
-
-	public void setPatientId(PatientData patientData) {
-		this.patientData = patientData;
 	}		
 }
