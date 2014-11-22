@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import pl.edu.pwr.dentasurvey.dao.SurveyDao;
+import pl.edu.pwr.dentasurvey.jqgrid.objects.SearchRequest;
+import pl.edu.pwr.dentasurvey.jqgrid.objects.SearchResponse;
 import pl.edu.pwr.dentasurvey.objects.Survey;
 
 @Service("surveyService")
@@ -23,6 +25,11 @@ public class SurveyService {
 	@Transactional
 	public List<Survey> getAllSurveys() {
 		return surveyDao.getAllSurveys();
+	}
+	
+	@Transactional
+	public SearchResponse getSurveysForJqgrid(SearchRequest req) {
+		return surveyDao.getSurveysForJqgrid(req);
 	}
 	
 	@Transactional

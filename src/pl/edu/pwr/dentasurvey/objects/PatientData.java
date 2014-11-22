@@ -1,14 +1,10 @@
 package pl.edu.pwr.dentasurvey.objects;
 
 import java.io.Serializable;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -44,22 +40,6 @@ public class PatientData implements Serializable {
 	
 	@Column(nullable=false, name="occupation")
 	private String occupation;
-	
-	@OneToMany(mappedBy="patientData", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
-	private List<AnsweredSurvey> answeredSurveys;	
-
-	public PatientData(Long patientId, String name, String surname, int age,
-			String address, String phoneNumber, int numberOfKids,
-			String occupation) {
-		this.patientId = patientId;
-		this.name = name;
-		this.surname = surname;
-		this.age = age;
-		this.address = address;
-		this.phoneNumber = phoneNumber;
-		this.numberOfKids = numberOfKids;
-		this.occupation = occupation;
-	}
 	
 	public PatientData(String name, String surname, int age,
 			String address, String phoneNumber, int numberOfKids,

@@ -6,8 +6,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import pl.edu.pwr.dentasurvey.jqgrid.objects.SearchRequest;
+import pl.edu.pwr.dentasurvey.jqgrid.objects.SearchResponse;
 import pl.edu.pwr.dentasurvey.objects.Survey;
 import pl.edu.pwr.dentasurvey.services.SurveyService;
 
@@ -16,6 +19,25 @@ public class SurveyController {
 
 	@Autowired
 	SurveyService surveyService;
+
+	@RequestMapping(value = "/manage/survey/all", method = RequestMethod.GET, produces="application/json")
+	public @ResponseBody SearchResponse getAllSurveys(
+			@ModelAttribute SearchRequest req
+			) {		
+		SearchResponse resp = surveyService.getSurveysForJqgrid(req);
+		return resp;
+	}	
+	
+	@RequestMapping(value = "/manage/survey/get", method = RequestMethod.GET)
+	public ModelAndView getSurvey(@RequestParam(value="id", required=true) Long id) {
+		ModelAndView model = new ModelAndView();
+
+		Survey survey = surveyService.getSurvey(id);
+		model.addObject("survey", survey);
+		model.setViewName("survey/surveyGet");
+	 
+		return model;
+	}
 	
 	@RequestMapping(value = "/manage/survey/add", method = RequestMethod.GET)
 	public ModelAndView addSurvey(@RequestParam(value="id", required=true) Long id) {

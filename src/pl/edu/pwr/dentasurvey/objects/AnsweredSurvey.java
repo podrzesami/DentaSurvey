@@ -2,17 +2,13 @@ package pl.edu.pwr.dentasurvey.objects;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Version;
 
@@ -44,9 +40,6 @@ public class AnsweredSurvey implements Serializable {
 	
 	@Column(nullable=false, name="medical_problem")
 	private String medicalProblem;
-	
-	@OneToMany(mappedBy="answeredSurvey", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
-	private List<Answer> answers;
 
 	public AnsweredSurvey(Date date, PatientData patientData,
 			String refferedBy, String medicalProblem) {

@@ -28,13 +28,28 @@ body {
 	margin: 100px auto;	
 }
 
+.manage-panel {
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	background-color: rgba(125, 122, 122, 0.85);
+	border: 2px solid rgba(19, 19, 27, 0.17);	
+	margin: 100px;
+	padding: 10px 100px 100px 100px;
+}
+
+.jqgrid-container {
+	height: 300px;
+	width: 80%;
+}
+
 h3 {
 	font: bold 44px "Calibri", Arial;
 	margin-top: 10px;
 }
 
 div {
-	font: 20px "Calibri", Aria;
+	font: 18px "Calibri", Aria;
 }
 
 button {

@@ -1,15 +1,11 @@
 package pl.edu.pwr.dentasurvey.objects;
 
 import java.io.Serializable;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -29,14 +25,6 @@ public class QuestionCategory implements Serializable{
 	
 	@Column(nullable=false, unique=true, name="category")
 	private String category;
-	
-	@OneToMany(mappedBy="questionCategory", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
-	private List<Question> questions;
-
-	public QuestionCategory(Long questionCategoryId, String category) {
-		this.questionCategoryId = questionCategoryId;
-		this.category = category;
-	}
 
 	public QuestionCategory(String category) {
 		this.category = category;

@@ -1,17 +1,13 @@
 package pl.edu.pwr.dentasurvey.objects;
 
 import java.io.Serializable;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -43,19 +39,6 @@ public class Question implements Serializable{
 	@ManyToOne()
 	@JoinColumn(name="question_category_id", nullable=false)
 	private QuestionCategory questionCategory;
-	
-	@OneToMany(mappedBy="question", fetch = FetchType.LAZY, cascade = {CascadeType.DETACH})
-	private List<Answer> answers;	
-
-	public Question(Long questionId, String question,
-			QuestionType questionType, Survey survey,
-			QuestionCategory questionCategory) {
-		this.questionId = questionId;
-		this.question = question;
-		this.questionType = questionType;
-		this.survey = survey;
-		this.questionCategory = questionCategory;
-	}
 
 	public Question(String question, QuestionType questionType, Survey survey,
 			QuestionCategory questionCategory) {

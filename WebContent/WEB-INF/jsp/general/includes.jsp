@@ -7,4 +7,5 @@
 
 <link rel="stylesheet" type="text/css" href="/DentaSurvey/resources/css/mainStyle.css">
 <link rel="stylesheet" type="text/css" href="/DentaSurvey/resources/css/buttonStyle.css">
-<script type="text/javascript" src="/DentaSurvey/resources/js/jQuery/jquery-2.1.1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/DentaSurvey/resources/css/idStyle.css">
+<script type="text/javascript" src="/DentaSurvey/resources/js/jQuery/jquery-1.11.0.min.js"></script>

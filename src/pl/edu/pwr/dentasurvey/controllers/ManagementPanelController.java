@@ -25,19 +25,17 @@ public class ManagementPanelController {
 	@RequestMapping(value = "/manage/survey", method = RequestMethod.GET)
 	public ModelAndView displaySurveyManagementPanel() {
 		ModelAndView model = new ModelAndView();
-
-		model.addObject("surveys", surveyService.getAllSurveys());
 		model.setViewName("survey/survey");
-	 
+		
 		return model;
 	}
-	
+
 	@RequestMapping(value = "/manage/patient", method = RequestMethod.GET)
 	public ModelAndView displayPatientManagementPanel() {
 		ModelAndView model = new ModelAndView();
 
-		model.addObject("surveys", patientService.getDataForAllPatients());
 		model.setViewName("patient/patient");
+		model.addObject("patients", patientService.getDataForAllPatients());
 	 
 		return model;
 	}
@@ -46,8 +44,8 @@ public class ManagementPanelController {
 	public ModelAndView displayUserManagementPanel() {
 		ModelAndView model = new ModelAndView();
 
-		model.addObject("users", userService.getAllUsers());
 		model.setViewName("user/user");
+		model.addObject("users", userService.getAllUsers());
 	 
 		return model;
 	}	

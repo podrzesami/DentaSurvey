@@ -1,17 +1,13 @@
 package pl.edu.pwr.dentasurvey.objects;
 
 import java.io.Serializable;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -35,20 +31,10 @@ public class Survey implements Serializable{
 	@ManyToOne()
 	@JoinColumn(nullable=false, name="language_id")
 	private Language language;
-	
-	@OneToMany(mappedBy="survey", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
-	private List<Question> questions;
 
 	public Survey(String title, Language language) {
 		super();
 		this.title = title;
 		this.language = language;
 	}
-
-	public Survey(Long surveyId, String title, Language language) {
-		super();
-		this.surveyId = surveyId;
-		this.title = title;
-		this.language = language;
-	}	
 }
