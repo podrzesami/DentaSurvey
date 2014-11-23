@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,7 +21,8 @@ public class Language implements Serializable{
 	private static final long serialVersionUID = -3797547325568861174L;
 	
 	@Id 
-	@GeneratedValue()
+	@GenericGenerator(name="generator", strategy="increment")
+	@GeneratedValue(generator="generator")
 	@Column(nullable=false, unique=true, name="language_id")
 	private Long languageId;
 	

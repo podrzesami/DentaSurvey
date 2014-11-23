@@ -15,13 +15,16 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import org.hibernate.annotations.GenericGenerator;
+
 @Entity
 @Table(name="surveys") @Getter @Setter @NoArgsConstructor @AllArgsConstructor
 public class Survey implements Serializable{
 	private static final long serialVersionUID = -6737763724946741575L;
 	
 	@Id
-	@GeneratedValue()
+	@GenericGenerator(name="generator", strategy="increment")
+	@GeneratedValue(generator="generator")
 	@Column(nullable=false, unique=true, name="survey_id")
 	private Long surveyId;
 	
@@ -30,8 +33,8 @@ public class Survey implements Serializable{
 	
 	@ManyToOne()
 	@JoinColumn(nullable=false, name="language_id")
-	private Language language;
-
+	private Language language;	
+	
 	public Survey(String title, Language language) {
 		super();
 		this.title = title;

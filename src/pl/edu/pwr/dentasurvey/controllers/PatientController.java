@@ -28,16 +28,16 @@ public class PatientController {
 	}	
 	
 	@RequestMapping(value = "/manage/patient/update", method = RequestMethod.POST)
-	public ModelAndView updatePatientData(@ModelAttribute PatientData p) {
+	public ModelAndView updatePatientData(@ModelAttribute PatientData patient) {
 		ModelAndView model = new ModelAndView();
 
-		patientService.updatePatientData(p);
+		patientService.updatePatientData(patient);
 		model.setViewName("patient/patient");
 	 
 		return model;
 	}
-	@RequestMapping(value = "/manage/patient/delete", method = RequestMethod.POST)
-	public ModelAndView deletePatient(@ModelAttribute Long id) {
+	@RequestMapping(value = "/manage/patient/delete", method = RequestMethod.GET)
+	public ModelAndView deletePatient(@RequestParam(value="id", required=true) Long id) {
 		ModelAndView model = new ModelAndView();
 
 		patientService.deletePatientData(id);
@@ -46,8 +46,8 @@ public class PatientController {
 		return model;
 	}
 	
-	@RequestMapping(value = "/manage/patient/multipleDelete", method = RequestMethod.POST)
-	public ModelAndView deletePatient(@ModelAttribute Long[] ids) {
+	@RequestMapping(value = "/manage/patient/multipleDelete", method = RequestMethod.GET)
+	public ModelAndView deletePatient(@RequestParam(value="id", required=true) Long[] ids) {
 		ModelAndView model = new ModelAndView();
 
 		patientService.deleteMultiplePatientDatas(ids);

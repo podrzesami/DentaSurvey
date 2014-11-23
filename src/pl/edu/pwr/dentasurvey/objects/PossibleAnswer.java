@@ -10,6 +10,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,7 +23,8 @@ public class PossibleAnswer implements Serializable{
 	private static final long serialVersionUID = 2594527037558301835L;
 
 	@Id 
-	@GeneratedValue()
+	@GenericGenerator(name="generator", strategy="increment")
+	@GeneratedValue(generator="generator")
 	@Column(nullable=false, unique=true, name="possible_answer_id")
 	private Long possibleAnswerId;
 	

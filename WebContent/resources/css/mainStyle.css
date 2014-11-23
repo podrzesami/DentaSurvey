@@ -21,11 +21,13 @@ body {
 	border-radius: 10px;
 	background-color: rgba(135, 135, 135, 0.65);
 	border: 2px solid rgba(19, 19, 27, 0.17);
+	font: 16px "Calibri", Aria;
 }
 
 .panel-center {
 	padding: 20px;
 	margin: 100px auto;	
+	font: 16px "Calibri", Aria;
 }
 
 .manage-panel {
@@ -46,10 +48,6 @@ body {
 h3 {
 	font: bold 44px "Calibri", Arial;
 	margin-top: 10px;
-}
-
-div {
-	font: 18px "Calibri", Aria;
 }
 
 button {
@@ -94,6 +92,25 @@ button {
 	margin-left: 400px;	
 	font: bold 30px "Calibri", Arial; 
 	text-align: center;
+}
+
+.form-label {	
+    font: bold 20px "Calibri",Aria;
+    text-align: right;
+    padding: 10px 50px 10px 150px;
+}
+
+.form-input {
+	font: 18px "Calibri",Aria;
+	margin: 2px;
+	width: 400px;
+}
+
+.form-button{
+    font: bold 18px "Calibri",Aria;
+    width: 100px;
+    height: 40px;
+    margin: 10px 10px 10px 550px;
 }
 
 .button-1-row-div {

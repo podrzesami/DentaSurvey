@@ -1,5 +1,8 @@
 package pl.edu.pwr.dentasurvey.hibernate;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -21,8 +24,11 @@ import pl.edu.pwr.dentasurvey.objects.User;
 
 @Repository("hibernateUtil")
 public class HibernateUtil {
+	private static Log log = LogFactory.getLog(HibernateUtil.class);
+	
 	private SessionFactory sessionFactory;
 	private ServiceRegistry serviceRegistry;
+	private static final ThreadLocal<Session> threadLocal = new ThreadLocal<Session>();
 
 	public SessionFactory createSessionFactory() {
 	    Configuration configuration = new Configuration();
@@ -55,10 +61,25 @@ public class HibernateUtil {
     	   } catch (org.hibernate.HibernateException he) {  
     	       session = sessionFactory.openSession();     
     	   }             
-    	   return session;
+    	
+    	threadLocal.set(session);
+    	return session;
     }
 
 	public HibernateUtil() {
 		this.sessionFactory = createSessionFactory();
-	}    
+	}
+	
+	public static void closeSession() throws HibernateException {
+		Session session = (Session) threadLocal.get();
+		threadLocal.set(null);
+
+		if (session != null) {
+			try	{
+				session.close();
+			} catch (org.hibernate.SessionException e){
+				log.error("already closed");
+			}
+		}
+	}
 }

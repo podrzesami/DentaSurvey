@@ -3,6 +3,7 @@ package pl.edu.pwr.dentasurvey.dao.impl;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 import pl.edu.pwr.dentasurvey.hibernate.HibernateUtil;
@@ -56,7 +57,15 @@ public abstract class AbstractDao<T> {
 		return hibernateUtil.getSession();
 	}
 	
+	public SessionFactory getSessionFactory() {  
+		return hibernateUtil.getSessionFactory();
+	}
+	
 	public Transaction beginTransaction() {
 		return hibernateUtil.getSession().beginTransaction();
 	}	
+	
+	public void closeSession() {
+		HibernateUtil.closeSession();
+	}
 }

@@ -18,7 +18,7 @@ public class UserController {
 	UserService userService;
 	
 	@RequestMapping(value = "/manage/user/add", method = RequestMethod.GET)
-	public ModelAndView addUser(@RequestParam(value="id", required=true) Long id) {
+	public ModelAndView addUser() {
 		ModelAndView model = new ModelAndView();
 
 		model.setViewName("user/userAdd");
@@ -26,10 +26,10 @@ public class UserController {
 		return model;
 	}
 	@RequestMapping(value = "/manage/user/add", method = RequestMethod.POST)
-	public ModelAndView addUser(@ModelAttribute User u) {
+	public ModelAndView addUser(@ModelAttribute User user) {
 		ModelAndView model = new ModelAndView();
 
-		userService.addUser(u);
+		userService.addUser(user);
 		model.setViewName("user/user");
 	 
 		return model;
@@ -46,17 +46,17 @@ public class UserController {
 	}	
 	
 	@RequestMapping(value = "/manage/user/update", method = RequestMethod.POST)
-	public ModelAndView updateUser(@ModelAttribute User u) {
+	public ModelAndView updateUser(@ModelAttribute User user) {
 		ModelAndView model = new ModelAndView();
 
-		userService.updateUser(u);
+		userService.updateUser(user);
 		model.setViewName("user/user");
 	 
 		return model;
 	}	
 	
-	@RequestMapping(value = "/manage/user/delete", method = RequestMethod.POST)
-	public ModelAndView deleteUser(@ModelAttribute Long id) {
+	@RequestMapping(value = "/manage/user/delete", method = RequestMethod.GET)
+	public ModelAndView deleteUser(@RequestParam(value="id", required=true) Long id) {
 		ModelAndView model = new ModelAndView();
 
 		userService.deleteUser(id);
@@ -65,8 +65,8 @@ public class UserController {
 		return model;
 	}
 	
-	@RequestMapping(value = "/manage/user/multipleDelete", method = RequestMethod.POST)
-	public ModelAndView deleteMultipleUser(@ModelAttribute Long[] ids) {
+	@RequestMapping(value = "/manage/user/multipleDelete", method = RequestMethod.GET)
+	public ModelAndView deleteMultipleUser(@RequestParam(value="id", required=true) Long[] ids) {
 		ModelAndView model = new ModelAndView();
 
 		userService.deleteMultipleUsers(ids);

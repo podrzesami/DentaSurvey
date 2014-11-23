@@ -11,12 +11,14 @@
 	<spring:message code="survey.surveys" var="tableTitle"/>
 	<spring:message code="survey.title" var="title"/>
 	<spring:message code="survey.language" var="language"/>
+	<spring:message code="jqgrid.warning" var="warning"/>
 	
 	<script type="text/javascript">
 		DentaSurvey.init(
 				'${title}',
 				'${language}',
-				'${tableTitle}'				
+				'${tableTitle}',		
+				'${warning}'
 				);
 	</script>
 </head>

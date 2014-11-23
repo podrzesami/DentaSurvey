@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,7 +21,8 @@ public class QuestionCategory implements Serializable{
 	private static final long serialVersionUID = 2004912436434381228L;
 	
 	@Id
-	@GeneratedValue()
+	@GenericGenerator(name="generator", strategy="increment")
+	@GeneratedValue(generator="generator")
 	@Column(nullable=false, unique=true, name="question_category_id")
 	private Long questionCategoryId;
 	

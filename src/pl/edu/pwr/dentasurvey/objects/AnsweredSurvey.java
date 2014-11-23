@@ -12,6 +12,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Version;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,7 +25,8 @@ public class AnsweredSurvey implements Serializable {
 	private static final long serialVersionUID = -6643183558907253725L;
 
 	@Id
-	@GeneratedValue()
+	@GenericGenerator(name="generator", strategy="increment")
+	@GeneratedValue(generator="generator")
 	@Column(nullable=false, unique=true, name="answered_survey_id") 
 	private Long answeredSurveyId;
 	

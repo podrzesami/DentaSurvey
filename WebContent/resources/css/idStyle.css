@@ -45,3 +45,11 @@
 	height: inherit ;
 	margin: 0px ;	
 }	
+
+#survey-add-panel {
+	height: 200px;
+}
+
+#survey-update-panel {
+	height: 200px;
+}
