@@ -24,7 +24,7 @@
 	
 	
 	<c:if test="${role == '[ROLE_USER]'}">	
-		<button id="patientPanel" class="centerButton-1" class="redButton">
+		<button id="patientPanel" class="centerButton-1 redButton">
 			<spring:message code="main.patientPanelButton"/>
 		</button>
 	</c:if>

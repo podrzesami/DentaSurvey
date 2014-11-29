@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import pl.edu.pwr.dentasurvey.dao.UserDao;
+import pl.edu.pwr.dentasurvey.jqgrid.objects.SearchRequest;
+import pl.edu.pwr.dentasurvey.jqgrid.objects.SearchResponse;
 import pl.edu.pwr.dentasurvey.objects.User;
 
 @Service("userService")
@@ -14,6 +16,11 @@ public class UserService {
 	
 	@Autowired 
 	private UserDao userDao;
+	
+	@Transactional
+	public SearchResponse getUsersForJqgrid(SearchRequest req) {
+		return userDao.getUsersForJqgrid(req);
+	}
 	
 	@Transactional
 	public List<User> getAllUsers() {

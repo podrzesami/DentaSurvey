@@ -13,7 +13,7 @@
 		<access-denied-handler error-page="/403" />
 		<intercept-url pattern="/" access="hasRole('ROLE_USER') or hasRole('ROLE_ADMIN') or hasRole('ROLE_OWNER')"/>
 		<intercept-url pattern="/survey/**" access="hasRole('ROLE_USER') or hasRole('ROLE_ADMIN') or hasRole('ROLE_OWNER')"/>
-		<intercept-url pattern="/manage/**" access="hasRole('ROLE_ADMIN') or hasRole('ROLE_USER') or hasRole('ROLE_OWNER')" />
+		<intercept-url pattern="/manage/**" access="hasRole('ROLE_ADMIN') or hasRole('ROLE_OWNER')" />
 		<intercept-url pattern="/userConfigurafion/**" access="hasRole('ROLE_OWNER')"/>
 		<form-login 
 		    login-page="/login" 

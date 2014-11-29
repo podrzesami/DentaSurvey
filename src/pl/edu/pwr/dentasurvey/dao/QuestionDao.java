@@ -21,5 +21,9 @@ public interface QuestionDao {
 	
 	public Boolean deleteMultipleQuestions(Long[] ids);
 
-	public SearchResponse getQuestionsForJqgrid(Long surveyId, SearchRequest req);	
+	public SearchResponse getQuestionsForJqgrid(Long surveyId, SearchRequest req);
+
+	public Boolean deleteQuestionFromAnswer(Long id);
+
+	public Question getQestionToAnswer(Long surveyId, int page);	
 }

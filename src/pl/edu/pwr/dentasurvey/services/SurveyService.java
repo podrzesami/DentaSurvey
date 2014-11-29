@@ -18,7 +18,7 @@ public class SurveyService {
 	private SurveyDao surveyDao;
 	
 	@Transactional
-	public List<Survey> getSurveysForLanguage(String language) {
+	public List<Survey> getSurveysToAnswer(String language) {
 		return surveyDao.getSurveysForLanguage(language);
 	}
 	

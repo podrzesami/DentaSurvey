@@ -29,7 +29,6 @@ var DentaSurvey = DentaSurvey || (function(){
 					rowNum:10, 
 					width:'900',
 					height:'75%',	
-					editurl: "/DentaSurvey/", 
 					viewrecords: true, 					
 					sortorder: "asc", 
 					caption: tableTitle 

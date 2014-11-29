@@ -8,4 +8,6 @@ public interface RoleDao {
 	public List<Role> getAllRole();
 	
 	public Role getRole(Long id);	
+	
+	public Role getRole(String role);
 }

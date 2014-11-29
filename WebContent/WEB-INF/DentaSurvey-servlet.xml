@@ -19,23 +19,20 @@
     	<property name="defaultEncoding" value="UTF-8" />
 	</bean>	 
 
-	<!-- Changes the locale when a 'language' request parameter is sent; e.g. /?language=de -->
+	<mvc:interceptors>
+	    <mvc:interceptor>
+	        <mvc:mapping path="/**" />
+	        <bean id="localeChangeInterceptor"
+	            class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+	            <property name="paramName" value="lang" />
+	        </bean>
+	    </mvc:interceptor>
+	</mvc:interceptors>
+	
 	<bean id="localeResolver"
-		class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
-		<property name="defaultLocale" value="pl" />
-	</bean>
- 
-	<bean id="localeChangeInterceptor"
-		class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
-		<property name="paramName" value="language" />
-	</bean>
- 
-	<bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping" >
-		<property name="interceptors">
-			<list>
-				<ref bean="localeChangeInterceptor" />
-			</list>
-		</property>
+	    class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
+	    <property name="cookieName" value="lang" />
+	    <property name="defaultLocale" value="pl" />
 	</bean>
 
 	<mvc:resources mapping="/resources/**" location="/resources/" />

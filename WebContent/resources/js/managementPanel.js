@@ -2,7 +2,7 @@ DentaSurvey = {
 	init: function() {
 		$(document).ready(function() {
 			$("#manageUses").click(function() {
-				location.href = "/DentaSurvey/manage/user";
+				location.href = "/DentaSurvey/userConfigurafion";
 		    }); 
 			$("#manageSurveys").click(function() {
 				location.href = "/DentaSurvey/manage/survey";

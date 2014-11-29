@@ -2,6 +2,8 @@ package pl.edu.pwr.dentasurvey.dao;
 
 import java.util.List;
 
+import pl.edu.pwr.dentasurvey.jqgrid.objects.SearchRequest;
+import pl.edu.pwr.dentasurvey.jqgrid.objects.SearchResponse;
 import pl.edu.pwr.dentasurvey.objects.PatientData;
 
 public interface PatientDataDao {
@@ -16,4 +18,8 @@ public interface PatientDataDao {
 	public Boolean deletePatientData(Long id);
 	
 	public Boolean deleteMultiplePatientData(Long[] ids);
+
+	public Boolean updateOrSavePatientData(PatientData p);
+
+	public SearchResponse getPatientsForJqgrid(SearchRequest req);
 }

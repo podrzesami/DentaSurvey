@@ -1,23 +1,18 @@
 package pl.edu.pwr.dentasurvey.controllers.tests;
 
-import static org.junit.Assert.*;
-
-import java.util.ArrayList;
-import java.util.List;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.runners.MockitoJUnitRunner;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.test.web.ModelAndViewAssert;
+import org.springframework.web.servlet.ModelAndView;
 
 import pl.edu.pwr.dentasurvey.controllers.MainController;
-import pl.edu.pwr.dentasurvey.objects.Survey;
 import pl.edu.pwr.dentasurvey.services.SurveyService;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -82,7 +77,7 @@ public class MainConterollerTest {
 		//then
 		assertTrue("inncorrect view returned", page.getViewName().equals("adminPanel"));
 	}
-	
+	/*
 	@Test
 	public void surveySelectPage() {
 		//given
@@ -98,5 +93,5 @@ public class MainConterollerTest {
 		assertTrue(page.getViewName().equals("surveySelection"));
 		ModelAndViewAssert.assertModelAttributeAvailable(page, "surveys");
 		ModelAndViewAssert.assertModelAttributeValue(page, "surveys", surveys);		
-	}
+	}*/
 }

@@ -7,6 +7,7 @@ import org.apache.commons.logging.LogFactory;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Property;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -79,5 +80,33 @@ public class RoleDaoImpl extends AbstractDao<Role> implements RoleDao {
     	}
     	
 		return res;
+	}
+	
+	@Override
+	public Role getRole(String role) {
+		List<Role> res;
+        Session session = null;
+    	Transaction transaction = null;
+ 
+    	try{
+    		session = getSession();
+    		transaction = session.beginTransaction();
+    		transaction.setTimeout(5);
+ 
+    		Criteria criteria = createCriteria();
+    		criteria.add(Property.forName("role").eq(role));    
+    		res = getRolesForCryteria(criteria);
+ 
+    		transaction.commit(); 
+    	}catch(RuntimeException e){
+    		try{
+    			transaction.rollback();
+    		}catch(RuntimeException rbe){
+    			log.error("Couldn’t roll back transaction");
+    		}
+    		throw e;
+    	}
+    	
+		return res.get(0);
 	}
 }

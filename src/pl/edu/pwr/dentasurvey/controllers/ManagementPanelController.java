@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import pl.edu.pwr.dentasurvey.services.PatientService;
+import pl.edu.pwr.dentasurvey.services.PatientDataService;
 import pl.edu.pwr.dentasurvey.services.SurveyService;
 import pl.edu.pwr.dentasurvey.services.UserService;
 
@@ -17,7 +17,7 @@ public class ManagementPanelController {
 	SurveyService surveyService;
 	
 	@Autowired
-	PatientService patientService;
+	PatientDataService patientService;
 	
 	@Autowired
 	UserService userService;
@@ -40,7 +40,7 @@ public class ManagementPanelController {
 		return model;
 	}
 	
-	@RequestMapping(value = "/manage/user", method = RequestMethod.GET)
+	@RequestMapping(value = "/userConfigurafion", method = RequestMethod.GET)
 	public ModelAndView displayUserManagementPanel() {
 		ModelAndView model = new ModelAndView();
 

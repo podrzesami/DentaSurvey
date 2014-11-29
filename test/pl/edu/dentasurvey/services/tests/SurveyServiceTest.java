@@ -41,7 +41,7 @@ public class SurveyServiceTest {
 				
 		//when
 		Mockito.when(surveyDao.getSurveysForLanguage(lang)).thenReturn(surveys);
-		List<Survey> result = surveyService.getSurveysForLanguage(lang);
+		List<Survey> result = surveyService.getSurveysToAnswer(lang);
 		
 		//then
 		Mockito.verify(surveyDao, Mockito.times(1)).getSurveysForLanguage(lang);

@@ -16,14 +16,12 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import pl.edu.pwr.dentasurvey.dao.AnswerDao;
 import pl.edu.pwr.dentasurvey.dao.LanguageDao;
 import pl.edu.pwr.dentasurvey.dao.QuestionDao;
 import pl.edu.pwr.dentasurvey.dao.SurveyDao;
 import pl.edu.pwr.dentasurvey.hibernate.HibernateUtil;
 import pl.edu.pwr.dentasurvey.jqgrid.objects.SearchRequest;
 import pl.edu.pwr.dentasurvey.jqgrid.objects.SearchResponse;
-import pl.edu.pwr.dentasurvey.objects.Answer;
 import pl.edu.pwr.dentasurvey.objects.Language;
 import pl.edu.pwr.dentasurvey.objects.Question;
 import pl.edu.pwr.dentasurvey.objects.Survey;
@@ -31,9 +29,6 @@ import pl.edu.pwr.dentasurvey.objects.Survey;
 @Repository("surveyDao")
 public class SurveyDaoImpl extends AbstractDao<Survey> implements SurveyDao {
 	private Log log = LogFactory.getLog(Survey.class);
-	
-	@Autowired
-	private AnswerDao answerDao;
 	
 	@Autowired
 	private QuestionDao questionDao;
@@ -60,7 +55,7 @@ public class SurveyDaoImpl extends AbstractDao<Survey> implements SurveyDao {
 		
 		DetachedCriteria ownerCriteria = DetachedCriteria.forClass(Language.class);
 	    ownerCriteria.setProjection(Property.forName("languageId"));
-	    ownerCriteria.add(Restrictions.eq("language", language));
+	    ownerCriteria.add(Restrictions.eq("language", language));	    
 	    
         Session session = null;
     	Transaction transaction = null;
@@ -247,10 +242,7 @@ public class SurveyDaoImpl extends AbstractDao<Survey> implements SurveyDao {
 
     	for (Iterator<Question> iterator = questions.iterator(); iterator.hasNext();) {
 			Question q = iterator.next();
-			List<Answer> answers = answerDao.getAnswersForQuestion(q.getQuestionId());
-		    if(answers==null || answers.isEmpty()) {
-		        questionDao.deleteQuestion(q.getQuestionId());
-		    }
+	        questionDao.deleteQuestion(q.getQuestionId());
 		}
     	
     	try{

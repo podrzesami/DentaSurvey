@@ -4,6 +4,12 @@
 	text-align: center;
 }
 
+#surveyDonePanel {
+	width:600px;
+	font: bold 30px "Calibri", Arial; 
+	text-align: center;
+}
+
 #patientPanelButton {
 	width: 350px;
 	height: inherit;
@@ -46,10 +52,30 @@
 	margin: 0px ;	
 }	
 
-#survey-add-panel {
+#survey-add-panel, 
+#survey-update-panel {
 	height: 200px;
 }
 
-#survey-update-panel {
-	height: 200px;
+#question-submit-button, 
+#question-update-button{
+	margin: 10px 10px 10px 600px;
+}
+
+#possibleAnswer-submit-button, 
+#possibleAnswer-update-button,
+#ansSurvey-submit-button {
+	margin: 10px 10px 10px 700px;
+}
+
+#open-submit-button {
+	margin: 10px 10px 10px 770px;
+}
+
+#user-update-button, #user-submit-button, #patient-submit-button {
+	margin: 10px 10px 10px 630px;	
+}
+
+#selectSurveyPanel {
+	margin: 10px 10px 10px 400px;
 }

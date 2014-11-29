@@ -1,8 +1,10 @@
 package pl.edu.pwr.dentasurvey.controllers;
 
 import java.util.List;
+import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -30,7 +32,7 @@ public class MainController {
 		return model;
 	}
 	
-	@RequestMapping(value = "/manage/", method = RequestMethod.GET)
+	@RequestMapping(value = "/manage", method = RequestMethod.GET)
 	public ModelAndView displayAdminPanel() {
 		ModelAndView model = new ModelAndView();
 
@@ -42,11 +44,11 @@ public class MainController {
 	}
 	
 	@RequestMapping(value = "/survery/selectSurvery", method = RequestMethod.GET)
-	public ModelAndView displayPatientPanel(
-				@RequestParam(value="language", required=false) String lang) {
+	public ModelAndView displayPatientPanel() {
+		Locale locale = LocaleContextHolder.getLocale();
 		ModelAndView model = new ModelAndView();
 		model.setViewName("surveySelection");
-		List<Survey> surveys = surveyService.getSurveysForLanguage("pl");
+		List<Survey> surveys = surveyService.getSurveysToAnswer(locale.getLanguage());
 		model.addObject("surveys", surveys);
 				
 		return model;

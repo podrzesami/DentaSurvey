@@ -29,15 +29,15 @@ public class PossibleAnswer implements Serializable{
 	private Long possibleAnswerId;
 	
 	@Column(nullable=false, unique=false, name="possible_answer")
-	private String possible_answer;
+	private String possibleAnswer;
 	
 	@ManyToOne()
-	@JoinColumn(name="question_type_id", nullable=false)
-	private QuestionType questionType;
+	@JoinColumn(name="question_id", nullable=false)
+	private Question question;
 
-	public PossibleAnswer(Long possibleAnswerId, String possible_answer) {
+	public PossibleAnswer(Long possibleAnswerId, String possibleAnswer) {
 		super();
 		this.possibleAnswerId = possibleAnswerId;
-		this.possible_answer = possible_answer;
+		this.possibleAnswer = possibleAnswer;
 	}	
 }

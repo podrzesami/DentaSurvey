@@ -1,0 +1,171 @@
+.title {
+	font-size: 44px;
+	font-weight: bold;
+}
+
+.panel {
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	background-color: rgba(135, 135, 135, 0.65);
+	border: 2px solid rgba(19, 19, 27, 0.17);
+	font: 16px "Calibri", Aria;
+}
+
+.panel-center {
+	padding: 20px;
+	margin: 100px auto;	
+	font: 16px "Calibri", Aria;
+}
+
+.manage-panel {
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	background-color: rgba(125, 122, 122, 0.85);
+	border: 2px solid rgba(19, 19, 27, 0.17);	
+	margin: 100px;
+	padding: 10px 100px 100px 100px;
+}
+
+.jqgrid-container {
+	height: 300px;
+	width: 80%;
+}
+
+.leftButton-1-2 {
+	display: inline;
+	width: 30px;
+	height: inherit;
+	font-size: 18px;
+	font-weight: bold;
+	margin: 0px;
+	margin-left: 300px;	
+}
+
+.rightButton-2-2 {
+	display: inline;
+	width: 300px;
+	height: inherit;
+	font-size: 18px;
+	font-weight: bold;
+	margin: 0px;
+}
+
+.centerButton-1 {
+	display: inline;
+	width: 500px;
+	height: 300px;
+	font-size: 18px;
+	font-weight: bold;
+	margin: 0px;	
+	margin-left: 400px;	
+	font: bold 30px "Calibri", Arial; 
+	text-align: center;
+}
+
+.form-label {	
+    font: bold 20px "Calibri",Aria;
+    text-align: right;
+    padding: 10px 50px 10px 150px;
+}
+
+.form-input {
+	font: 18px "Calibri",Aria;
+	margin: 2px;
+	width: 400px;
+}
+
+.form-button{
+    font: bold 18px "Calibri",Aria;
+    width: 100px;
+    height: 40px;
+    margin: 10px 10px 10px 550px;
+}
+
+.answer-panel {
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	background-color: rgba(125, 122, 122, 0.85);
+	border: 2px solid rgba(19, 19, 27, 0.17);	
+	margin: 100px;
+	padding: 10px 100px 100px 100px;
+}
+
+
+.answer-form-label {	
+    font: bold 20px "Calibri",Aria;
+    text-align: right;
+    padding: 10px 50px 10px 150px;
+}
+
+.answer-form-input {
+	font: 18px "Calibri",Aria;
+	margin: 2px;
+	width: 400px;
+}
+
+.answer-form-button{
+    font: bold 18px "Calibri",Aria;
+    width: 100px;
+    height: 40px;
+    margin: 10px 10px 10px 550px;
+}
+
+.object-label {
+    font: bold 16px "Calibri",Aria;
+    text-align: right;
+    padding: 10px 50px 10px 150px;
+}
+
+.object-value {
+	font: 18px "Calibri",Aria;
+	margin: 2px;
+	width: 400px;
+}
+.button-1-row-div {
+	padding-top: 150px;
+	height: 300px;
+}
+
+.button-2-row-div-1 {
+	padding-top: 130px;
+	height: 200px !important;	
+}
+
+.button-2-row-div-2 {
+	padding-top: 5px;
+	height: 150px !important;
+	margin-left: 300px	
+}
+
+.select-survey {	
+	height: 65px;
+	width: 400px;
+	font: bold 20px "Calibri",Aria;
+	margin: 5px;
+}
+
+.open-form-input {	
+	height: 50px;
+	width: 800px;
+	margin-left: 70px;
+	background: rgba(209, 209, 255, 0.39);
+	border: 2px rgba(210, 212, 242, 0.68);
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;	
+	font: 18px "Calibri",Aria;	
+}
+
+.radio-label {	
+    font: bold 20px "Calibri",Aria;
+    padding-right: 30px;
+    text-align: right;    
+}
+
+.select-list-div {
+	padding-left:150px;
+	width: 700px !important;
+}

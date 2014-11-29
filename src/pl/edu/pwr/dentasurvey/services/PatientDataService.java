@@ -7,10 +7,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import pl.edu.pwr.dentasurvey.dao.PatientDataDao;
+import pl.edu.pwr.dentasurvey.jqgrid.objects.SearchRequest;
+import pl.edu.pwr.dentasurvey.jqgrid.objects.SearchResponse;
 import pl.edu.pwr.dentasurvey.objects.PatientData;
 
 @Service("patientService")
-public class PatientService {
+public class PatientDataService {
 	
 	@Autowired 
 	private PatientDataDao patientDataDao;
@@ -43,5 +45,14 @@ public class PatientService {
 	@Transactional
 	public Boolean deleteMultiplePatientDatas(Long[] ids) {
 		return patientDataDao.deleteMultiplePatientData(ids);
-	}	
+	}
+	
+	@Transactional
+	public Boolean updateOrSavePatientData(PatientData p) {
+		return patientDataDao.updateOrSavePatientData(p);
+	}
+
+	public SearchResponse getPatientsForJqgrid(SearchRequest req){
+		return patientDataDao.getPatientsForJqgrid(req);
+	}
 }

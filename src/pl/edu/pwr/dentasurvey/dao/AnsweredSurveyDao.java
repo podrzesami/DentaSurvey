@@ -19,5 +19,9 @@ public interface AnsweredSurveyDao {
 	
 	public Boolean deleteMultipleAnsweredSurveys(Long[] ids);
 
-	public SearchResponse getAnsweredSurveysForJqgrid(SearchRequest req);	
+	public SearchResponse getAnsweredSurveysForJqgrid(Long id, SearchRequest req);
+
+	public void deleteAnsweredSurveysForPatient(Long id);
+
+	public List<AnsweredSurvey> getAnsweredSurveysForPatient(Long id);	
 }

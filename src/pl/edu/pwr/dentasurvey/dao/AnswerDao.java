@@ -23,5 +23,7 @@ public interface AnswerDao {
 	
 	public Boolean deleteMultipleAnswers(Long[] ids);
 
-	public SearchResponse getAnswersForJqgrid(Long ansSurveyId, SearchRequest req);	
+	public SearchResponse getAnswersForJqgrid(Long ansSurveyId, SearchRequest req);
+
+	public void deleteAnswersForAnsweredSurvey(Long id);	
 }

@@ -7,6 +7,7 @@ import org.apache.commons.logging.LogFactory;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Property;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -29,7 +30,7 @@ public class QuestionTypeDaoImpl extends AbstractDao<QuestionType> implements Qu
 	}	
 	
 	@Override
-	public List<QuestionType> getAllQuestionTypes() {
+	public List<QuestionType> getAllQuestionType() {
 		List<QuestionType> res;
         Session session = null;
     	Transaction transaction = null;
@@ -50,6 +51,8 @@ public class QuestionTypeDaoImpl extends AbstractDao<QuestionType> implements Qu
     			log.error("Couldn’t roll back transaction");
     		}
     		throw e;
+    	} finally {
+    		closeSession();
     	}
     	
 	    return res;
@@ -76,8 +79,41 @@ public class QuestionTypeDaoImpl extends AbstractDao<QuestionType> implements Qu
     			log.error("Couldn’t roll back transaction");
     		}
     		throw e;
+    	} finally {
+    		closeSession();
     	}
     	
 		return res;
 	}
+
+	
+	@Override
+	public QuestionType getQuestionType(String type) {
+		List<QuestionType> res;
+        Session session = null;
+    	Transaction transaction = null;
+ 
+    	try{
+    		session = getSession();
+    		transaction = session.beginTransaction();
+    		transaction.setTimeout(5);
+ 
+    		Criteria criteria = createCriteria();
+    		 criteria.add(Property.forName("type").eq(type));    
+    		res = getQuestionTypesForCryteria(criteria);
+ 
+    		transaction.commit(); 
+    	}catch(RuntimeException e){
+    		try{
+    			transaction.rollback();
+    		}catch(RuntimeException rbe){
+    			log.error("Couldn’t roll back transaction");
+    		}
+    		throw e;
+    	} finally {
+    		closeSession();
+    	}
+    	
+	    return res.get(0);
+	}	
 }
