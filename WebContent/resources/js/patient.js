@@ -45,7 +45,7 @@ var DentaSurvey = DentaSurvey || (function(){
 							   if(selr==null) {
 								   alert(warning);
 							   } else {
-								   window.location.replace("/DentaSurvey/manage/patient/get?id=" + selr);
+								   window.location.href = ("/DentaSurvey/manage/patient/get?id=" + selr);
 							   }
 						   }, 
 						   position:"last"
@@ -58,7 +58,7 @@ var DentaSurvey = DentaSurvey || (function(){
 						   if(selr==null) {
 							   alert(warning);
 						   } else {
-							   window.location.replace("/DentaSurvey/manage/patient/delete?id=" + selr);
+							   window.location.href = ("/DentaSurvey/manage/patient/delete?id=" + selr);
 						   }
 					   }, 
 					   position:"last"
@@ -71,7 +71,7 @@ var DentaSurvey = DentaSurvey || (function(){
 							   if(selr==null) {
 								   alert(warning);
 							   } else {
-								   window.location.replace("/DentaSurvey/manage/patient/update?id=" + selr);
+								   window.location.href = ("/DentaSurvey/manage/patient/update?id=" + selr);
 							   }
 						   }, 
 						   position:"last"

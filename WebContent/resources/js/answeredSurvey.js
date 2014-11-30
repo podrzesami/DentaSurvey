@@ -54,8 +54,8 @@ var DentaSurvey = DentaSurvey || (function(){
 							   if(selr==null) {
 								   alert(warning);
 							   } else {
-								   window.location.replace(
-										   "/DentaSurvey/manage/answeredSurvey/get?id=" + selr);
+								   window.location.href =
+									   ("/DentaSurvey/manage/answeredSurvey/get?id=" + selr);
 							   }
 						   }, 
 						   position:"last"
@@ -68,13 +68,28 @@ var DentaSurvey = DentaSurvey || (function(){
 						   if(selr==null) {
 							   alert(warning);
 						   } else {
-							   window.location.replace("/DentaSurvey/manage/answeredSurvey/delete?patientId=" + patientId
+							   window.location.href = ("/DentaSurvey/manage/answeredSurvey/delete?patientId=" + patientId
 									   + "&id=" + selr);
 						   }
 					   }, 
 					   position:"last"
+				})
+				.navButtonAdd('#manageAnsweredSurveyPager',{
+				   caption:"Export", 
+					   buttonicon:"ui-icon-folder-open", 
+					   onClickButton: function(){ 
+						   var selr = jQuery('#manageAnsweredSurveyGrid').jqGrid('getGridParam', 'selrow');
+						   if(selr==null) {
+							   alert(warning);
+						   } else {
+							   window.location.href = ("/DentaSurvey/manage/answeredSurvey/export?" 
+									+ "patientId=" + patientId
+									+ "&id=" + selr);
+						   }
+					   }, 
+					   position:"last"
 				});
-				
+		
 				function myDateFormatter ( cellvalue, options, rowObject )
 				{
 					return new_formated_cellvalue;

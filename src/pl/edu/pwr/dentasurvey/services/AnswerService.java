@@ -1,5 +1,7 @@
 package pl.edu.pwr.dentasurvey.services;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,11 @@ public class AnswerService {
 		return answerDao.getAnswersForJqgrid(ansSurveyId, req);
 	}
 
+	@Transactional
+	public List<Answer> getAnswersForSurvey(Long ansSurveyId){
+		return answerDao.getAnswersForAnsSurvey(ansSurveyId);
+	}
+	
 	@Transactional
 	public Boolean addAnswer(Answer answer) {
 		return answerDao.addAnswer(answer);

@@ -1,5 +1,19 @@
 package pl.edu.pwr.dentasurvey.controllers;
 
+import java.io.FileInputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.ServletContext;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import net.sf.jxls.transformer.XLSTransformer;
+
+import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -11,7 +25,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import pl.edu.pwr.dentasurvey.jqgrid.objects.SearchRequest;
 import pl.edu.pwr.dentasurvey.jqgrid.objects.SearchResponse;
+import pl.edu.pwr.dentasurvey.objects.Answer;
 import pl.edu.pwr.dentasurvey.objects.AnsweredSurvey;
+import pl.edu.pwr.dentasurvey.objects.PatientData;
+import pl.edu.pwr.dentasurvey.services.AnswerService;
 import pl.edu.pwr.dentasurvey.services.AnsweredSurveyService;
 import pl.edu.pwr.dentasurvey.services.PatientDataService;
 
@@ -24,6 +41,12 @@ public class AnsweredSurveyController {
 	@Autowired
 	AnsweredSurveyService answeredSurveyService;
 
+	@Autowired
+	AnswerService answerService;
+	
+	@Autowired
+	ServletContext servletContext;
+	
 	@RequestMapping(value = "/manage/answeredSurvey/answeredSurveys", method = RequestMethod.GET, produces="application/json")
 	public @ResponseBody SearchResponse getAllSurveys(
 			@RequestParam(value="id", required=true) Long id,
@@ -56,7 +79,70 @@ public class AnsweredSurveyController {
 	 
 		return model;
 	}
-	
+
+/*	@RequestMapping(value = "/manage/answeredSurvey/export", method = RequestMethod.GET)
+	public ModelAndView exportSurvey(
+			@RequestParam(value="patientId", required=true) Long patientId,
+			@RequestParam(value="id", required=true) Long id) 
+					throws ParsePropertyException, InvalidFormatException, IOException {
+		ModelAndView model = new ModelAndView();
+
+        String srcFilePath = "C:/Users/Marta/workspaceEE/DentaSurvey/WebContent/resources/excel/wzor.xlsx";
+        String destFilePath = "C:/Users/Marta/workspaceEE/DentaSurvey/WebContent/resources/excel/res.xlsx";
+        List<Answer> answers = answerService.getAnswersForSurvey(id);
+        PatientData p = patientDataService.getPatientData(patientId);
+        List<PatientData> patient = new ArrayList<PatientData>();
+        Map<String, List<?>> beanParams = new HashMap<String, List<?>>();
+        patient.add(p);
+        List<AnsweredSurvey> ans = new ArrayList<AnsweredSurvey>();
+        ans.add(answeredSurveyService.getAnsweredSurvey(id));
+        beanParams.put("answers", answers);
+        beanParams.put("patient", patient);
+        beanParams.put("answeredSurvey", ans);        
+         
+        XLSTransformer former = new XLSTransformer();
+        former.transformXLS(srcFilePath,beanParams,destFilePath);
+		
+		model.addObject("patient", patientDataService.getPatientData(patientId));
+		model.setViewName("patient/patientGet");
+	 
+		return model;
+	}	*/
+	@RequestMapping(value = "/manage/answeredSurvey/export", method = RequestMethod.GET)
+    public String export(HttpServletRequest request, HttpServletResponse response,
+    		@RequestParam(value="patientId", required=true) Long patientId,
+			@RequestParam(value="id", required=true) Long id) {
+		
+		String context = servletContext.getRealPath("resources");
+
+        try {
+            // set output header
+            ServletOutputStream os = response.getOutputStream();
+            response.setContentType("application/vnd.ms-excel");
+            response.setHeader("Content-Disposition", "attachment; filename=\"report.xlsx\"");
+             
+            List<Answer> answers = answerService.getAnswersForSurvey(id);
+            PatientData p = patientDataService.getPatientData(patientId);
+            List<PatientData> patient = new ArrayList<PatientData>();
+            Map<String, List<?>> beans = new HashMap<String, List<?>>();
+            patient.add(p);
+            List<AnsweredSurvey> ans = new ArrayList<AnsweredSurvey>();
+            ans.add(answeredSurveyService.getAnsweredSurvey(id));
+            beans.put("answers", answers);
+            beans.put("patient", patient);
+            beans.put("answeredSurvey", ans);   
+            XLSTransformer transformer = new XLSTransformer();
+ 
+            Workbook workbook = transformer.transformXLS(new FileInputStream(context + "/excel/report.xlsx"), beans);
+            workbook.write(os);
+            os.flush();
+ 
+            return null;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    } 
 	@RequestMapping(value = "/manage/answeredSurvey/multipleDelete", method = RequestMethod.GET)
 	public ModelAndView deleteMultipleSurvey(
 			@RequestParam(value="patientId", required=true) Long patientId,

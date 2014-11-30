@@ -45,8 +45,8 @@ var DentaSurvey = DentaSurvey || (function(){
 							   if(selr==null) {
 								   alert(warning);
 							   } else {
-								   window.location.replace(
-										   "/DentaSurvey/manage/question/get?id=" + selr);
+								   window.location.href = 
+									   ("/DentaSurvey/manage/question/get?id=" + selr);
 							   }
 						   }, 
 						   position:"last"
@@ -55,7 +55,7 @@ var DentaSurvey = DentaSurvey || (function(){
 					   caption:"Add", 
 					   buttonicon:"ui-icon-plus", 
 					   onClickButton: function(){ 
-						   window.location.replace("/DentaSurvey/manage/question/add?surveyId=" + surveyId);
+						   window.location.href = ("/DentaSurvey/manage/question/add?surveyId=" + surveyId);
 					   }, 
 					   position:"last"
 				})
@@ -67,7 +67,7 @@ var DentaSurvey = DentaSurvey || (function(){
 							   if(selr==null) {
 								   alert(warning);
 							   } else {
-								   window.location.replace("/DentaSurvey/manage/question/update?surveyId=" + surveyId 
+								   window.location.href = ("/DentaSurvey/manage/question/update?surveyId=" + surveyId 
 										   + "&id=" + selr);
 							   }
 						   }, 
@@ -81,7 +81,7 @@ var DentaSurvey = DentaSurvey || (function(){
 						   if(selr==null) {
 							   alert(warning);
 						   } else {
-							   window.location.replace("/DentaSurvey/manage/question/delete?surveyId=" + surveyId
+							   window.location.href = ("/DentaSurvey/manage/question/delete?surveyId=" + surveyId
 									   + "&id=" + selr);
 						   }
 					   }, 
