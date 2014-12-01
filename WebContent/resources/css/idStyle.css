@@ -79,3 +79,18 @@
 #selectSurveyPanel {
 	margin: 10px 10px 10px 400px;
 }
+
+#teeth-panel {
+	background: none repeat scroll 0% 0% #FFF;
+	margin-left: 150px;
+	padding: 50px 200px;
+	width: 200px;
+	border-radius: 10px;
+	border: solid rgba(96, 27, 27, 0.58);
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+}
+
+#teeth-submit-button {
+	margin: 10px 10px 10px 650px;
+}

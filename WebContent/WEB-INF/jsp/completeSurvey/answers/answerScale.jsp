@@ -23,6 +23,7 @@
 			<c:if test="${question.questionType.type=='scale-0-6'}">
 			   	<c:forEach var="i" begin="0" end="6">
 				   <form:radiobutton path="answer" name="answer" value="${i}"/>
+				   <form:label class="radio-label" path="answer"> ${i} </form:label>
 				</c:forEach>	
 			</c:if>	
 		</div>

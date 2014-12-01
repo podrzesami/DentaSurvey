@@ -80,34 +80,6 @@ public class AnsweredSurveyController {
 		return model;
 	}
 
-/*	@RequestMapping(value = "/manage/answeredSurvey/export", method = RequestMethod.GET)
-	public ModelAndView exportSurvey(
-			@RequestParam(value="patientId", required=true) Long patientId,
-			@RequestParam(value="id", required=true) Long id) 
-					throws ParsePropertyException, InvalidFormatException, IOException {
-		ModelAndView model = new ModelAndView();
-
-        String srcFilePath = "C:/Users/Marta/workspaceEE/DentaSurvey/WebContent/resources/excel/wzor.xlsx";
-        String destFilePath = "C:/Users/Marta/workspaceEE/DentaSurvey/WebContent/resources/excel/res.xlsx";
-        List<Answer> answers = answerService.getAnswersForSurvey(id);
-        PatientData p = patientDataService.getPatientData(patientId);
-        List<PatientData> patient = new ArrayList<PatientData>();
-        Map<String, List<?>> beanParams = new HashMap<String, List<?>>();
-        patient.add(p);
-        List<AnsweredSurvey> ans = new ArrayList<AnsweredSurvey>();
-        ans.add(answeredSurveyService.getAnsweredSurvey(id));
-        beanParams.put("answers", answers);
-        beanParams.put("patient", patient);
-        beanParams.put("answeredSurvey", ans);        
-         
-        XLSTransformer former = new XLSTransformer();
-        former.transformXLS(srcFilePath,beanParams,destFilePath);
-		
-		model.addObject("patient", patientDataService.getPatientData(patientId));
-		model.setViewName("patient/patientGet");
-	 
-		return model;
-	}	*/
 	@RequestMapping(value = "/manage/answeredSurvey/export", method = RequestMethod.GET)
     public String export(HttpServletRequest request, HttpServletResponse response,
     		@RequestParam(value="patientId", required=true) Long patientId,
