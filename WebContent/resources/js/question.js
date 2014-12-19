@@ -14,11 +14,11 @@ var DentaSurvey = DentaSurvey || (function(){
 					colModel:[
 					    {name:'questionId', index:'guestionId', jsonmap:'questionId', hidden:true },    
 						{name:'question', index:'question', sortable:true, jsonmap:'question', 
-							width:600},
+							width:'60%'},
 						{name:'questionCategory.category', index:'questionCategory.category', 
-								sortable:false, jsonmap:'questionCategory.category', width:200},
+								sortable:false, jsonmap:'questionCategory.category', width:'20%'},
 						{name:'questionType.type', index:'questionType.type', 
-								sortable:false, jsonmap:'questionType.type', width:200}
+								sortable:false, jsonmap:'questionType.type', width:'20%'}
 					], 
 					jsonReader:{
 						id:"questionId",
@@ -30,11 +30,12 @@ var DentaSurvey = DentaSurvey || (function(){
 					pager: '#manageQuestionPager',
 					sortname: 'question',
 					rowNum:10, 
-					width:'900',
 					height:'75%',	
 					viewrecords: true, 					
 					sortorder: "asc", 
-					caption: title 
+					caption: title ,
+					shrinkToFit:true,
+					autowidth:true,
 				}).navGrid('#manageQuestionPager',
 						{edit:false,add:false,del:false,search:false})				
 				.navButtonAdd('#manageQuestionPager',{
@@ -87,6 +88,16 @@ var DentaSurvey = DentaSurvey || (function(){
 					   }, 
 					   position:"last"
 				});
+				
+				$(window).bind('resize', function() {
+					var width = $("#manage-question-container").width();
+				    if(width!=null){
+				    	$("#manageQuestionGrid").jqGrid('setGridWidth', width, true);				    	
+				    }
+				    else {
+				    	$("#manageQuestionGrid").jqGrid('setGridWidth', 900, true);
+				    }
+				}).trigger('resize');
 			});
 		},
 	};

@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ include file="/WEB-INF/jsp/general/includes.jsp" %>
+
 <head>
 	<link rel="stylesheet" type="text/css" href="/DentaSurvey/resources/css/idStyle.css">
 	<script type="text/javascript" src="/DentaSurvey/resources/js/managementPanel.js"></script>

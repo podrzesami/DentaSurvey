@@ -10,7 +10,7 @@
 	
 	<spring:message code="answeredSurvey.answeredSurveys" var="title"/>
 	<spring:message code="answeredSurvey.date" var="date"/>
-	<spring:message code="answeredSurvey.refferedBy" var="refferedBy"/>
+	<spring:message code="answeredSurvey.referredBy" var="refferedBy"/>
 	<spring:message code="answeredSurvey.medicalProblem" var="medicalProblem"/>			
 	<spring:message code="jqgrid.warning" var="warning"/>
 	

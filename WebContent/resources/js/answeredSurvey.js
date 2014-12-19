@@ -1,6 +1,6 @@
 var DentaSurvey = DentaSurvey || (function(){
 	return {
-		init: function(patientId, title, refferedBy, date, medicalProblem, warning) {
+		init: function(patientId, title, referedBy, date, medicalProblem, warning) {
 			$(document).ready(function(){			 
 				$("#manageAnsweredSurveyGrid").jqGrid({
 					url: '/DentaSurvey/manage/answeredSurvey/answeredSurveys?id=' + patientId,					
@@ -8,7 +8,7 @@ var DentaSurvey = DentaSurvey || (function(){
 					colNames:[
 					          "",
 					           date,
-					           refferedBy,
+					           referedBy,
 					           medicalProblem
 					],
 					colModel:[
@@ -23,11 +23,11 @@ var DentaSurvey = DentaSurvey || (function(){
 	                                      $.extend({}, $.jgrid.formatter.date, opts),
 	                                      rowObject,
 	                                      action);
-	                        }, width:300},	                            
-						{name:'refferedBy', index:'refferedBy', sortable:true, jsonmap:'refferedBy', 
-							width:600},
+	                        }, width:'25%'},	                            
+						{name:'referredBy', index:'referredBy', sortable:true, jsonmap:'referredBy', 
+							width:'35%'},
 						{name:'medicalProblem', index:'medicalProblem', sortable:true, jsonmap:'medicalProblem', 
-							width:400},	
+							width:'40%'},	
 					], 
 					jsonReader:{
 						id:"answeredSurveyId",
@@ -43,7 +43,9 @@ var DentaSurvey = DentaSurvey || (function(){
 					height:'75%',	
 					viewrecords: true, 					
 					sortorder: "asc", 
-					caption: title 
+					caption: title,
+					shrinkToFit:true,
+					autowidth:true, 
 				}).navGrid('#manageAnsweredSurveyPager',
 						{edit:false,add:false,del:false,search:false})				
 				.navButtonAdd('#manageAnsweredSurveyPager',{
@@ -89,7 +91,17 @@ var DentaSurvey = DentaSurvey || (function(){
 					   }, 
 					   position:"last"
 				});
-		
+				
+				$(window).bind('resize', function() {
+					var width = $("#manage-answeredSurvey-container").width();
+				    if(width!=null){
+				    	$("#manageAnsweredSurveyGrid").jqGrid('setGridWidth', width, true);
+				    }
+				    else {
+				    	$("#manageAnsweredSurveyGrid").jqGrid('setGridWidth', 900, true);
+				    }
+				}).trigger('resize');
+				
 				function myDateFormatter ( cellvalue, options, rowObject )
 				{
 					return new_formated_cellvalue;

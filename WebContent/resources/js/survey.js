@@ -13,9 +13,9 @@ var DentaSurvey = DentaSurvey || (function(){
 					colModel:[
 					    {name:'surveyId', index:'surveyId', jsonmap:'surveyId', hidden:true },    
 						{name:'title', index:'title', sortable:true, jsonmap:'title', 
-							width:800},
+							width:'80%'},
 						{name:'laguage.language', index:'language.language', 
-								sortable:false, jsonmap:'language.language', width:200}
+								sortable:false, jsonmap:'language.language', width:'20%'}
 					], 
 					jsonReader:{
 						id:"surveyId",
@@ -27,11 +27,12 @@ var DentaSurvey = DentaSurvey || (function(){
 					pager: '#manageSurveyPager',
 					sortname: 'title',
 					rowNum:10, 
-					width:'900',
 					height:'75%',	
 					viewrecords: true, 					
 					sortorder: "asc", 
-					caption: tableTitle 
+					caption: tableTitle,
+					shrinkToFit:true,
+					autowidth:true,
 				}).navGrid('#manageSurveyPager',
 						{edit:false,add:false,del:false,search:false})				
 				.navButtonAdd('#manageSurveyPager',{
@@ -81,6 +82,15 @@ var DentaSurvey = DentaSurvey || (function(){
 						   }, 
 						   position:"last"
 				});
+				$(window).bind('resize', function() {
+					var width = $("#jqgrid-container").width();
+				    if(width!=null){
+				    	$("#manageSurveyGrid").jqGrid('setGridWidth', width, true);
+				    }
+				    else {
+				    	$("#manageSurveyGrid").jqGrid('setGridWidth', 900, true);
+				    }
+				}).trigger('resize');
 			});
 		},
 	};

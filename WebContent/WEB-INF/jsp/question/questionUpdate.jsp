@@ -13,6 +13,7 @@
 		        		<spring:message code="question.question"/>:
 		        	</form:label></td>
 		        <td><form:input class="form-input" type="text" 
+		        		required="required" maxlength="512"
 		        		path="question" value="${question.question}"/></td>
 		    </tr>
 		    <tr>

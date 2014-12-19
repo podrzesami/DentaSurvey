@@ -10,7 +10,8 @@
 		        <td><form:label class="form-label" path="title">
 		        		<spring:message code="survey.title"/>:
 		        	</form:label></td>
-		        <td><form:input class="form-input" type="text" 
+		        <td><form:input class="form-input" type="text"
+		        		required="required" maxlength="92"  
 		        		path="title"/></td>
 		    </tr>
 		    <tr>

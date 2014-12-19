@@ -1,6 +1,6 @@
 .error {
-	padding: 15px;
-	margin-bottom: 20px;
+	padding: 3%;
+	margin-bottom: 5%;
 	border: 1px solid rgba(173, 36, 58, 0.56);
 	border-radius: 4px;
 	color: rgba(170, 17, 14, 1);
@@ -8,8 +8,8 @@
 }
  
 .msg {
-	padding: 15px;
-	margin-bottom: 20px;
+	padding: 3%;
+	margin-bottom: 5%;
 	border: 1px solid transparent;
 	border-radius: 4px;
 	color: #31708f;
@@ -18,41 +18,41 @@
 }
  
 #login-box {
-	width: 450px;
-	padding: 20px;
-	margin: 100px auto;	
+	width: 40%;
+	margin: 10% auto;
+	padding: 5%;	
 }
 
 .login-lebel {
-	width: 100px;
+	width: 25%;
 	float: left;
 	display: inline;
 	text-align: right;
-	padding: 14px 10px 0px 0px;
-	font: 18px "Calibri",Aria;
-	margin-right: 20px;
+	padding: 2% 2% 0% 0%;
+	font: 1.3vw "Calibri",Aria;
+	margin-right: 7%;
 }
 
 .login-box {
 	float: left;
 	display: inline;
-	width: 300px;
-	margin: 0px 0px 7px;
+	width: 60%;
+	margin: 0% 0% 1% 0%;
 }
 
 .login-input {
-	width: 300px;
-	padding: 10px 4px 6px 3px;
+	width: 100%;
+	padding: 3% 4% 3% 3%;
 	border: 1px solid rgba(249, 249, 249, 0.37);
 	background-color: rgba(211, 226, 243, 0.43);
-	font-size: 16px;
-	color: rgba(255, 255, 255, 1);
+	font-size: 1.2vw;
+	color: #FFF;
 }
 
 .login-button {
-	width: 100px;
-	height: 40px;
-	font-size: 18px;
+	width: 20%;
+	height: 7%;
+	font-size: 1.3vw;
 	font-weight: bold;
-	margin: 10px 10px 10px 330px;
+	margin: 2% 2% 1% 74%;
 }

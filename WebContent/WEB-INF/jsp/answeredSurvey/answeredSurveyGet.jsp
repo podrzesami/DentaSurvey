@@ -34,8 +34,8 @@
 		        <td class="object-value">${answeredSurvey.date}</td>
 		    </tr>
 		    <tr>
-		        <td class="object-label"><spring:message code="answeredSurvey.refferedBy"/>:</td>
-		        <td class="object-value">${answeredSurvey.refferedBy}</td>
+		        <td class="object-label"><spring:message code="answeredSurvey.referredBy"/>:</td>
+		        <td class="object-value">${answeredSurvey.referredBy}</td>
 		    </tr>
 		    <tr>
 		        <td class="object-label"><spring:message code="answeredSurvey.medicalProblem"/>:</td>

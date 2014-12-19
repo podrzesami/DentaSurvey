@@ -12,13 +12,14 @@ var DentaSurvey = DentaSurvey || (function(){
 					          address,
 					],
 					colModel:[
-					    {name:'patientId', index:'patientId', jsonmap:'patientId'},    
+					    {name:'patientId', index:'patientId', jsonmap:'patientId',
+					    	width: '10%'},    
 					    {name:'surname', index:'surname', sortable:true, jsonmap:'surname', 
-							width:400},
+							width:'25%'},
 					    {name:'name', index:'name', sortable:true, jsonmap:'name', 
-							width:300},						
+							width:'30%'},						
 						{name:'address', index:'address', sortable:true, jsonmap:'address', 
-							width:500},								
+							width:'35%'},								
 					], 
 					jsonReader:{
 						id:"patientId",
@@ -34,7 +35,9 @@ var DentaSurvey = DentaSurvey || (function(){
 					height:'75%',	
 					viewrecords: true, 					
 					sortorder: "asc", 
-					caption: tableTitle 
+					caption: tableTitle,
+					shrinkToFit:true,
+					autowidth:true,
 				}).navGrid('#managePatientPager',
 						{edit:false,add:false,del:false,search:false})				
 				.navButtonAdd('#managePatientPager',{
@@ -76,6 +79,16 @@ var DentaSurvey = DentaSurvey || (function(){
 						   }, 
 						   position:"last"
 				});
+				$(window).bind('resize', function() {
+					var width = $("#managePatientContainer").width();
+				    if(width!=null){
+				    	$("#managePatientGrid").jqGrid('setGridWidth', width, true);
+				    }
+				    else {
+				    	$("#managePatientGrid").jqGrid('setGridWidth', 900, true);
+				    }
+				}).trigger('resize');
+				
 			});
 		},
 	};

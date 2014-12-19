@@ -11,6 +11,7 @@
 		        		<spring:message code="user.username"/>:
 		        	</form:label></td>
 		        <td><form:input class="form-input" type="text" 
+		        		required="required" maxlength="45" 
 		        		path="username" value="${user.username}"/></td>
 		    </tr>
 		    <tr>		    
@@ -18,6 +19,7 @@
 		        		<spring:message code="user.password"/>:
 		        	</form:label></td>
 		        <td><form:input class="form-input" type="text" 
+		        		required="required" maxlength="45"
 		        		path="password" value="${user.password}"/></td>
 		    </tr>	    
 		    <tr>

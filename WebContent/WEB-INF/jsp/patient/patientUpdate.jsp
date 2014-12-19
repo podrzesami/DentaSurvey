@@ -10,49 +10,55 @@
 		        <td><form:label class="form-label" path="name">
 		        		<spring:message code="patient.name"/>:
 		        	</form:label></td>
-		        <td><form:input class="form-input" type="text" 
-		        		path="name" value="${patient.name}"/></td>
+		        <td><form:input class="form-input" type="text" required="required" 
+		        		pattern="[a-zA-ZąćęłńóśżźĄĆĘŁŃÓŚŻŹ]*" maxlength="45" path="name" 
+		        		value="${patient.name}"/></td>
 		    </tr>
 		    <tr>		    
 		        <td><form:label class="form-label" path="surname">
 		        		<spring:message code="patient.surname"/>:
 		        	</form:label></td>
-		        <td><form:input class="form-input" type="text" 
+		        <td><form:input class="form-input" type="text"
+		        		required="required" pattern="[a-zA-ZąćęłńóśżźĄĆĘŁŃÓŚŻŹ]*" maxlength="45" 
 		        		path="surname" value="${patient.surname}"/></td>
 		    </tr>	
 		    <tr>		    
 		        <td><form:label class="form-label" path="age">
 		        		<spring:message code="patient.age"/>:
 		        	</form:label></td>
-		        <td><form:input class="form-input" type="text" 
+		        <td><form:input class="form-input" type="number" 
+		        		required="required" min="1" max="110"
 		        		path="age" value="${patient.age}"/></td>
 		    </tr>	
 		    <tr>		    
 		        <td><form:label class="form-label" path="address">
 		        		<spring:message code="patient.address"/>:
 		        	</form:label></td>
-		        <td><form:input class="form-input" type="text" 
+		        <td><form:input class="form-input" type="text"
+		        		required="required" maxlength="90" 
 		        		path="address" value="${patient.address}"/></td>
 		    </tr>		
 		    <tr>		    
 		        <td><form:label class="form-label" path="phoneNumber">
 		        		<spring:message code="patient.phone"/>:
 		        	</form:label></td>
-		        <td><form:input class="form-input" type="text" 
+		        <td><form:input class="form-input" type="text"
+		        		required="required" type="tel" 
 		        		path="phoneNumber" value="${patient.phoneNumber}"/></td>
 		    </tr>
 		    <tr>		    
 		        <td><form:label class="form-label" path="numberOfKids">
 		        		<spring:message code="patient.nrOfKids"/>:
 		        	</form:label></td>
-		        <td><form:input class="form-input" type="text" 
+		        <td><form:input class="form-input" min="0" max="80" type="number" 
 		        		path="numberOfKids" value="${patient.numberOfKids}"/></td>
 		    </tr>
 		    <tr>		    
 		        <td><form:label class="form-label" path="occupation">
 		        		<spring:message code="patient.occupation"/>:
 		        	</form:label></td>
-		        <td><form:input class="form-input" type="text" 
+		        <td><form:input class="form-input" type="text"
+		        		required="required" maxlength="45" 
 		        		path="occupation" value="${patient.occupation}"/></td>
 		    </tr>		    	    		    
 		    <tr>

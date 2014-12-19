@@ -9,24 +9,32 @@
 	
 	   	<table>
 	   		<tr>		    
-		        <td><form:label class="answer-form-label" path="refferedBy">
-		        		<spring:message code="answeredSurvey.refferedBy"/>:
+		        <td class="ans-label-column">
+		        	<form:label class="answer-form-label" path="referredBy">
+		        		<spring:message code="answeredSurvey.referredBy"/>:
 		        	</form:label></td>
-		        <td><form:input class="answer-form-input" type="text" path="refferedBy"/></td>
+		        <td class="ans-input-column">
+		        	<form:input class="answer-form-input" required="required" 
+		        		maxlength="128" type="text" path="referredBy"/></td>
 		    </tr>
 		    <tr>		    
-		        <td><form:label class="answer-form-label" path="medicalProblem">
+		        <td class="ans-label-column">
+		        	<form:label class="answer-form-label" path="medicalProblem">
 		        		<spring:message code="answeredSurvey.medicalProblem"/>:
 		        	</form:label></td>
-		        <td><form:input class="answer-form-input" type="text" path="medicalProblem"/></td>
+		        <td class="ans-input-column">
+		        	<form:input class="answer-form-input" required="required" 
+		        			maxlength="256" type="text" path="medicalProblem"/></td>
 		    </tr>
 		    <tr>
-		        <td colspan="2">
+		    	<td></td>
+		         <td class="ans-button-column">
 		        	<spring:message code="button.next" var="save"/>
 		            <input id="ansSurvey-submit-button" class="answer-form-button greyButton" 
 		            			type="submit" value="${save}">		           
 		        </td>
 		    </tr>
 		</table>  			
+
 	</form:form>
 </div>

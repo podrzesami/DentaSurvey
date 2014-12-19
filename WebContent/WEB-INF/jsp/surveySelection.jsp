@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ include file="/WEB-INF/jsp/general/includes.jsp" %>
+
 <script type="text/javascript" src="/DentaSurvey/resources/js/selectSurvey.js"></script>
 
 <c:forEach var="el" items="${surveys}">

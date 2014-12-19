@@ -8,7 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="/DentaSurvey/resources/css/jqGrid/ui.jqgrid.css">
 	<link rel="stylesheet" type="text/css" href="/DentaSurvey/resources/css/jqGrid/jquery-ui.css">
 	
-	<spring:message code="user.users" var="tableTitle"/>
+	<spring:message code="user.users" var="title"/>
 	<spring:message code="user.username" var="username"/>
 	<spring:message code="user.role" var="role"/>
 	<spring:message code="jqgrid.warning" var="warning"/>
@@ -24,7 +24,7 @@
 </head>
 <div class="manage-panel">
 	<h3><spring:message code="user.pageTitle"/></h3>
-	<div class="jqgrid-container">
+	<div id="manageUserContainer" class="jqgrid-container">
 		<table id="manageUserGrid"></table>
 		<div id="manageUserPager"></div>
 	</div>

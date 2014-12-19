@@ -1,56 +1,37 @@
 #accessDeniedPanel {
-	width:400px;
-	font: bold 30px "Calibri", Arial; 
+	width: 40%;
+	font: bold 3vw "Calibri",Arial;
 	text-align: center;
 }
 
 #surveyDonePanel {
-	width:600px;
-	font: bold 30px "Calibri", Arial; 
-	text-align: center;
+	width: 55%;
+	font: bold 2vw "Calibri",Arial;
+	text-align: center;	
 }
 
-#patientPanelButton {
-	width: 350px;
-	height: inherit;
-	margin: 0px;
-}
-
-#adminPanelButton {
-	width: 350px;
-	height: inherit ;
-	margin: 0px ;
-}
-
-#manageSurveys {
-	width: 350px;
-	height: inherit ;
-	margin: 0px ;
-}
-
+#patientPanelButton, 
+#adminPanelButton,
+#manageSurveys, 
 #managePatiens {
-	width: 350px;
-	height: inherit ;
-	margin: 0px ;	
-}
-
-#manageUses {
-	width: 705px;
-	height: inherit ;
-	margin: 0px ;
-}
-
-#manageSurveys2 {
-	width: 350px;
-	height: inherit ;
-	margin: 0px ;
-}
-
-#managePatiens2 {
-	width: 350px;
+	width: 30%;
 	height: inherit ;
 	margin: 0px ;	
 }	
+
+#manageSurveys2, 
+#managePatiens2 {
+	width: 30%;
+	height: 30% ;
+	margin: 0px ;	
+}	
+
+
+#manageUses {
+	width: 75.5%;
+	height: inherit;
+	margin: 0%;
+}
 
 #survey-add-panel, 
 #survey-update-panel {
@@ -63,28 +44,29 @@
 }
 
 #possibleAnswer-submit-button, 
-#possibleAnswer-update-button,
-#ansSurvey-submit-button {
+#possibleAnswer-update-button {
 	margin: 10px 10px 10px 700px;
 }
 
 #open-submit-button {
-	margin: 10px 10px 10px 770px;
+	width: 100px;
 }
 
-#user-update-button, #user-submit-button, #patient-submit-button {
-	margin: 10px 10px 10px 630px;	
+#user-update-button, 
+#user-submit-button, 
+#patient-submit-button {
+	margin: 1% 1% 1% 87%;
 }
 
 #selectSurveyPanel {
-	margin: 10px 10px 10px 400px;
+	margin: 1% 1% 1% 35%;
 }
 
 #teeth-panel {
 	background: none repeat scroll 0% 0% #FFF;
-	margin-left: 150px;
-	padding: 50px 200px;
-	width: 200px;
+	margin-left: 15%;
+	padding: 5% 20%;
+	width: 25%;
 	border-radius: 10px;
 	border: solid rgba(96, 27, 27, 0.58);
 	-webkit-border-radius: 10px;
@@ -92,5 +74,5 @@
 }
 
 #teeth-submit-button {
-	margin: 10px 10px 10px 650px;
+	margin: 1% 1% 1% 65%;
 }

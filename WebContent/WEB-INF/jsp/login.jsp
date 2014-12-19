@@ -1,7 +1,15 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
-<%@ include file="/WEB-INF/jsp/general/includes.jsp" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
+<script type="text/javascript" src="/DentaSurvey/resources/js/jQuery/jquery-1.11.0.min.js"></script>
 <%@page session="true"%>
 <head>
+<link rel="stylesheet" type="text/css" href="/DentaSurvey/resources/css/definedObStyle.css">
+<link rel="stylesheet" type="text/css" href="/DentaSurvey/resources/css/classStyle.css">
+<link rel="stylesheet" type="text/css" href="/DentaSurvey/resources/css/buttonStyle.css">
+<link rel="stylesheet" type="text/css" href="/DentaSurvey/resources/css/idStyle.css">
 <link rel="stylesheet" type="text/css" href="/DentaSurvey/resources/css/loginStyle.css">
 </head>
 <body onload='document.loginForm.username.focus();'>

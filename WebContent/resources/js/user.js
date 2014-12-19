@@ -13,9 +13,9 @@ var DentaSurvey = DentaSurvey || (function(){
 					colModel:[
 					    {name:'userId', index:'userId', jsonmap:'userId', hidden:true },    
 						{name:'username', index:'username', sortable:true, jsonmap:'username', 
-							width:800},
+							width:'80%'},
 						{name:'role.role', index:'role.role', 
-								sortable:false, jsonmap:'role.role', width:200}
+								sortable:false, jsonmap:'role.role', width:'20%'}
 					], 
 					jsonReader:{
 						id:"userId",
@@ -31,7 +31,9 @@ var DentaSurvey = DentaSurvey || (function(){
 					height:'75%',	
 					viewrecords: true, 					
 					sortorder: "asc", 
-					caption: tableTitle 
+					caption: tableTitle,
+					shrinkToFit:true,
+					autowidth:true,
 				}).navGrid('#manageUserPager',
 						{edit:false,add:false,del:false,search:false})				
 				.navButtonAdd('#manageUserPager',{
@@ -68,6 +70,15 @@ var DentaSurvey = DentaSurvey || (function(){
 						   }, 
 						   position:"last"
 				});
+				$(window).bind('resize', function() {
+					var width = $("#manageUserContainer").width();
+				    if(width!=null){
+				    	$("#manageUserGrid").jqGrid('setGridWidth', width, true);
+				    }
+				    else {
+				    	$("#manageUserGrid").jqGrid('setGridWidth', 900, true);
+				    }
+				}).trigger('resize');
 			});
 		},
 	};

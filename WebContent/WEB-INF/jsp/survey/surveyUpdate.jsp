@@ -11,6 +11,7 @@
 		        		<spring:message code="survey.title"/>:
 		        	</form:label></td>
 		        <td><form:input class="form-input" type="text" 
+		        		required="required" maxlength="92" 
 		        		path="title" value="${survey.title}"/></td>
 		    </tr>
 		    <tr>

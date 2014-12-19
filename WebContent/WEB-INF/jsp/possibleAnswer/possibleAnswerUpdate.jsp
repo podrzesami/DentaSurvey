@@ -14,6 +14,7 @@
 		        		<spring:message code="possibleAnswer.possibleAnswer"/>:
 		        	</form:label></td>
 		        <td><form:input class="form-input" type="text" 
+		        		required="required" maxlength="100" 
 		        		path="possibleAnswer" value="${possibleAnswer.possibleAnswer}"/></td>
 		    </tr>
 		    <tr>

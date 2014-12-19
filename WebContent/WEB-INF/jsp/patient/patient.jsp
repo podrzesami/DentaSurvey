@@ -28,7 +28,7 @@
 </head>
 <div class="manage-panel">
 	<h3><spring:message code="patient.pageTitle"/></h3>
-	<div class="jqgrid-container">
+	<div id="managePatientContainer" class="jqgrid-container">
 		<table id="managePatientGrid"></table>
 		<div id="managePatientPager"></div>
 	</div>

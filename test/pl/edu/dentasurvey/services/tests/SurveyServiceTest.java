@@ -77,7 +77,8 @@ public class SurveyServiceTest {
 		//then
 		Mockito.verify(surveyDao, Mockito.times(1)).getSurvey(id);
 		assertNotNull("empty result", result);
-		assertTrue("incorrect result", survey==result);	}
+		assertTrue("incorrect result", survey==result);	
+	}
 	
 	@Test
 	public void addSurvey() {

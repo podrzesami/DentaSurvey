@@ -13,7 +13,8 @@
 		        <td><form:label class="form-label" path="possibleAnswer">
 		        		<spring:message code="possibleAnswer.possibleAnswer"/>:
 		        	</form:label></td>
-		        <td><form:input class="form-input" type="text" 
+		        <td><form:input class="form-input" type="text"
+		        		required="required" maxlength="100" 
 		        		path="possibleAnswer"/></td>
 		    </tr>
 		    <tr>

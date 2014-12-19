@@ -92,7 +92,8 @@ public class PatientAnswersSurveyController {
 			model.addObject("answeredSurveyId", answeredSurvey.getAnsweredSurveyId());
 			model.addObject("question", question);
 			
-			if(question.getQuestionType().getType().equals("multichoice")){
+			if(question.getQuestionType().getType().equals("multichoice")
+					||  question.getQuestionType().getType().contains("picture") ){
 				model.addObject("answer", new AnswerLight());
 			} else {
 				model.addObject("answer", new Answer());
@@ -117,6 +118,10 @@ public class PatientAnswersSurveyController {
 			page++;
 		}
 		
+		if(answer.getAnswer()==null || answer.getAnswer().length()<1) {
+			answer.setAnswer(" ");
+		}
+		
 		Question question = questionService.getQuestionToAnswer(surveyId, page);
 		
 		if(question==null) {
@@ -133,7 +138,8 @@ public class PatientAnswersSurveyController {
 			model.addObject("answeredSurveyId", answeredSurveyId);
 			model.addObject("question", question);
 			
-			if(question.getQuestionType().getType().equals("multichoice")){
+			if(question.getQuestionType().getType().equals("multichoice")
+					||  question.getQuestionType().getType().contains("picture") ){
 				model.addObject("answer", new AnswerLight());
 			} else {
 				model.addObject("answer", new Answer());
@@ -156,6 +162,10 @@ public class PatientAnswersSurveyController {
 		} else {
 			page++;
 		}
+
+		if(answer.getAnswer()==null || answer.getAnswer().length()<1) {
+			answer.setAnswer(" ");
+		}		
 		
 		Question question = questionService.getQuestionToAnswer(surveyId, page);
 		answerService.addAnswer(answer);
@@ -175,7 +185,8 @@ public class PatientAnswersSurveyController {
 			model.addObject("answeredSurveyId", answeredSurveyId);
 			model.addObject("question", question);
 			
-			if(question.getQuestionType().getType().equals("multichoice")){
+			if(question.getQuestionType().getType().equals("multichoice")
+					||  question.getQuestionType().getType().contains("picture") ){
 				model.addObject("answer", new AnswerLight());
 			} else {
 				model.addObject("answer", new Answer());
@@ -198,6 +209,7 @@ public class PatientAnswersSurveyController {
 		} else {
 			page++;
 		}
+
 		
 		Question question = questionService.getQuestionToAnswer(surveyId, page);
 		
@@ -208,7 +220,10 @@ public class PatientAnswersSurveyController {
 		ans.setQuestion(new Question());
 		ans.getQuestion().setQuestionId(answer.getQuestionId());
 		answerService.addAnswer(ans);
-		
+
+		if(ans.getAnswer()==null || ans.getAnswer().length()<1) {
+			ans.setAnswer(" ");
+		}
 		
 		if(question==null) {
 			model.setViewName("completeSurvey/completed");
@@ -224,7 +239,8 @@ public class PatientAnswersSurveyController {
 			model.addObject("answeredSurveyId", answeredSurveyId);
 			model.addObject("question", question);
 			
-			if(question.getQuestionType().getType().equals("multichoice")){
+			if(question.getQuestionType().getType().equals("multichoice")
+					||  question.getQuestionType().getType().contains("picture") ){
 				model.addObject("answer", new AnswerLight());
 			} else {
 				model.addObject("answer", new Answer());

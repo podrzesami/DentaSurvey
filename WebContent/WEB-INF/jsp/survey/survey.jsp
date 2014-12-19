@@ -24,7 +24,7 @@
 </head>
 <div class="manage-panel">
 	<h3><spring:message code="survey.pageTitle"/></h3>
-	<div class="jqgrid-container">
+	<div id="jqgrid-container" class="jqgrid-container">
 		<table id="manageSurveyGrid"></table>
 		<div id="manageSurveyPager"></div>
 	</div>

@@ -39,17 +39,17 @@ public class AnsweredSurvey implements Serializable {
 	private PatientData patientData;
 	
 	@Column(nullable=false, name="referred_by")
-	private String refferedBy;	
+	private String referredBy;	
 	
 	@Column(nullable=false, name="medical_problem")
 	private String medicalProblem;
 
 	public AnsweredSurvey(Date date, PatientData patientData,
-			String refferedBy, String medicalProblem) {
+			String referredBy, String medicalProblem) {
 		super();
 		this.date = date;
 		this.patientData = patientData;
-		this.refferedBy = refferedBy;
+		this.referredBy = referredBy;
 		this.medicalProblem = medicalProblem;
 	}		
 }
