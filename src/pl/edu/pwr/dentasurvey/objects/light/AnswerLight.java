@@ -17,8 +17,10 @@ public class AnswerLight implements Serializable{
 	
 	public String answersToString() {
 		String res = "";
-		for(String ans : answer) {
-			res += ans + "; ";
+		if(answer != null) {
+			for(String ans : answer) {
+				res += ans + "; ";
+			}
 		}
 		
 		return res;

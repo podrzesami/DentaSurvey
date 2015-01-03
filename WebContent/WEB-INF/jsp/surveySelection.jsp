@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ include file="/WEB-INF/jsp/general/includes.jsp" %>
+<%@ include file="/WEB-INF/jsp/general/header.jsp" %>
 
 <script type="text/javascript" src="/DentaSurvey/resources/js/selectSurvey.js"></script>
 

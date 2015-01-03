@@ -28,7 +28,7 @@
 	border-radius: 10px;
 	background-color: rgba(125, 122, 122, 0.85);
 	border: 2px solid rgba(19, 19, 27, 0.17);
-	padding: 1% 6% 6% 8%;
+	padding: 1% 6% 10% 8%;
 	position: relative;
 	width: 70%;
 	left: 8vw;
@@ -73,22 +73,34 @@
 }
 
 .form-label {	
-    font: bold 20px "Calibri",Aria;
+    font: bold 1.3vw "Calibri",Aria;
     text-align: right;
-    padding: 10px 50px 10px 150px;
+    padding: 10px 40px 10px 150px;
 }
 
 .form-input {
-	font: 18px "Calibri",Aria;
+	font: 1.3vw "Calibri",Aria;
 	margin: 2px;
-	width: 400px;
+	width: 80%;
 }
 
 .form-button{
-    font: bold 18px "Calibri",Aria;
-    width: 100px;
+    font: bold 1.4vw "Calibri",Aria;
+    width: 80%;
     height: 40px;
-    margin: 10px 10px 10px 550px;
+    margin: 10px 10px 10px 0px;
+}
+
+.label-column {
+	width: 13%;
+}
+
+.input-column {
+	width: 10%;
+}
+
+.button-column {
+	width: 20%;
 }
 
 .ans-label-column {

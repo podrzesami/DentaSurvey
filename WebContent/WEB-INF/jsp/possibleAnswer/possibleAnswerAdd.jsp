@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ include file="/WEB-INF/jsp/general/includes.jsp" %>
+<%@ include file="/WEB-INF/jsp/general/headerSimple.jsp" %>
 
 <div id="survey-add-panel" class="manage-panel">
 	<h3><spring:message code="possibleAnswer.addTitle"/></h3>
@@ -10,15 +11,18 @@
 				path="possibleAnswerId" type="hidden" value="${possibleAnswerId}"/>
 	   	<table>
 		    <tr>		    
-		        <td><form:label class="form-label" path="possibleAnswer">
+		        <td class="label-column">
+		        	<form:label class="form-label" path="possibleAnswer">
 		        		<spring:message code="possibleAnswer.possibleAnswer"/>:
 		        	</form:label></td>
-		        <td><form:input class="form-input" type="text"
+		        <td class="input-column">	
+		        	<form:input class="form-input" type="text"
 		        		required="required" maxlength="100" 
 		        		path="possibleAnswer"/></td>
 		    </tr>
 		    <tr>
-		        <td colspan="2">
+		     	<td></td>
+		        <td class="button-column">
 		        	<spring:message code="button.submit" var="save"/>
 		            <input id="possibleAnswer-submit-button" class="form-button greyButton" 
 		            			type="submit" value="${save}">		           

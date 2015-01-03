@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ include file="/WEB-INF/jsp/general/includes.jsp" %>
+<%@ include file="/WEB-INF/jsp/general/header.jsp" %>
 
 <head>
 	<script src="/DentaSurvey/resources/js/jqGrid/grid.locale-pl.js" type="text/javascript"></script>

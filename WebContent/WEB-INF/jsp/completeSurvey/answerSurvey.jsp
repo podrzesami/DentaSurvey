@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ include file="/WEB-INF/jsp/general/includes.jsp" %>
+<%@ include file="/WEB-INF/jsp/general/headerSimple.jsp" %>
 
 <div id="patient-update-panel" class="answer-panel">
 	<h3><spring:message code="answerSurvey.patientTitle"/></h3>
